@@ -15,4 +15,9 @@ Rails.application.routes.draw do
   get "/challenges/:challenge_id/challenge_infos/top3", to: "challenge_infos#top3", as: :top_3
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :users, only: [:index, :show] do
+    collection do
+      get "profile", to: "users#profile", as: :my_profile
+    end
+  end
 end
