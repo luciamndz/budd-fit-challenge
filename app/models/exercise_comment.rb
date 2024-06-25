@@ -1,4 +1,4 @@
 class ExerciseComment < ApplicationRecord
   belongs_to :exercise_session
-  validates :comment, presence: true
+  validates :comments, presence: true
 end
