@@ -26,9 +26,12 @@ class ChallengesController < ApplicationController
   end
 
   def destroy
-
       @challenge.destroy!
       redirect_to root_path
+
+  end
+
+  def method_name
 
   end
 
