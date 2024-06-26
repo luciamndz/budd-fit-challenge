@@ -3,11 +3,16 @@ class ChallengesController < ApplicationController
   before_action :find_challenge, only: [:show, :destroy]
 
   def index
-    @challenges = Challenge.all
+    if params[:query].present?
+      @challenge = Challenge.global_search(params[:query])
+    else
+      @challenges = Challenge.all
+    end
+
   end
 
   def show
-    
+
   end
 
   def new

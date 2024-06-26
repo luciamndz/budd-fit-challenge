@@ -1,0 +1,14 @@
+<div>
+  <p>
+  <% if params[:query].blank? %>
+      <%= pluralize challenge.count, "challenge" %> found
+    <% else %>
+      <%= "No results found" %>
+    <% end %>
+  </p>
+  <div class="challenges" >
+    <% challenges.each do |challenge| %>
+      <%= render "challenge", challenge: challenge %>
+    <% end %>
+  </div>
+</div>
