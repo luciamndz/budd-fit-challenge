@@ -1,0 +1,17 @@
+<h1><%= @challenge.name %></h1>
+
+<p>Aqui tenemos el display de los miembros del challenge:</p>
+
+<%# <% @challenge.users.each do |user| %>
+  <%# <ul> %>
+    <%# <li><%= user.nickname %></li>
+    <%# <% if @challenge.user == current_user %>
+    <%# <simple form for> %>
+      <%# <input class='hidden' value= challenge_info_id> %>
+      <%# <button class="submit">Delete user</button> esto redirige a challenge_infos#update %>
+    <%# <% end %>
+  <%# </ul> %>
+<%# <% end %>
+
+<p>Para eliminar un usuario del challenge tenemos que cambiar su estado de active a inactive</p>
+<p>hay que hacer un simple form, que el boton sea un submit que rediriga al controller challenge_infos#update</p>

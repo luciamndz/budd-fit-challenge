@@ -52,7 +52,24 @@ ChallengeInfo.create!(
   user_score: 1,
   attendance: false,
   user_id: 1,
-  challenge_id: 1
+  challenge_id: 1,
+  user_status: "active"
+)
+
+ChallengeInfo.create!(
+  user_score: 1,
+  attendance: false,
+  user_id: 2,
+  challenge_id: 1,
+  user_status: "active"
+)
+
+ChallengeInfo.create!(
+  user_score: 1,
+  attendance: false,
+  user_id: 3,
+  challenge_id: 1,
+  user_status: "active"
 )
 
 puts "Creating exercise sesions..."
@@ -80,7 +97,8 @@ puts "Creating an invite!!!"
 
 Invite.create!(
   status: "pending",
-  user_id: 2,
+  invitee_id: 2,
+  inviter_id: 1,
   challenge_id: 1
 )
 
