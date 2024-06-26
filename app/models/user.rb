@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :invites
   has_many :challenges, dependent: :nullify
   has_one_attached :photo
+
 end
