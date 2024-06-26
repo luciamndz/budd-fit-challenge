@@ -30,6 +30,12 @@ class ChallengesController < ApplicationController
     redirect_to root_path
   end
 
+  def kick_user
+    @user = User.find(@challenge.user_id)
+    @challenge.user = @user
+    @challenge.user.destroy
+  end
+
   private
 
   def params_challenge
