@@ -1,0 +1,18 @@
+<div class="container p-4 d-flex justify-content-center">
+  <div class="shadow-lg border border-light">
+    <div class="m-3">
+      <h1>Create your own challenge!</h1>
+      <%= simple_form_for @challenge do |f| %>
+        <%= f.input :name %>
+        <%= f.input :challenge_type %>
+        <%= f.input :activity %>
+        <%= f.input :duration %>
+        <p>Invite your friends: <%= f.input :user_id %> </p>
+        <%= f.input :status, as: :hidden, input_html: { value: "created" } %>
+        <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+
+        <%= f.button :submit, "Create challenge", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
