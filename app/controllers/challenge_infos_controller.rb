@@ -6,4 +6,9 @@ class ChallengeInfosController < ApplicationController
     @challenge_info.user_status = "inactive"
   end
 
+  def top
+  
+  end
+
+
 end

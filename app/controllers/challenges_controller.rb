@@ -7,7 +7,9 @@ class ChallengesController < ApplicationController
     @challenges = Challenge.all
   end
 
-  def show;end
+  def show;
+  @user = User.find(params[:id])
+  end
 
   def new
     @challenge = Challenge.new
@@ -24,12 +26,10 @@ class ChallengesController < ApplicationController
   end
 
   def destroy
-    if @challenge.user == current_user
+
       @challenge.destroy!
       redirect_to root_path
-    else
-      render show:, status: :forbidden
-    end
+
   end
 
   private

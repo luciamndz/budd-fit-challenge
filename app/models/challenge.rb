@@ -1,8 +1,8 @@
 class Challenge < ApplicationRecord
   include PgSearch::Model
   belongs_to :user
-  has_many :invites
-  has_many :challenge_infos
+  has_many :invites, dependent: :destroy
+  has_many :challenge_infos, dependent: :destroy
   has_many :users, through: :challenge_infos
 
   TYPES = ["public", "private"].freeze
