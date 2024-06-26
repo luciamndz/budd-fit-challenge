@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :invites, :only => [:show, :edit, :update]
   get "/challenges/:challenge_id/challenge_infos/top3", to: "challenge_infos#top3", as: :top_3
+  
   # Defines the root path route ("/")
   # root "posts#index"
   resources :users, only: [:index, :show] do
