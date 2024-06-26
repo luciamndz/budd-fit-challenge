@@ -8,11 +8,12 @@ class ChallengesController < ApplicationController
   end
 
   def show;
-  @user = User.find(params[:id])
+  authorize @challenge
   end
 
   def new
     @challenge = Challenge.new
+    authorize @challenge
   end
 
   def create
@@ -23,19 +24,32 @@ class ChallengesController < ApplicationController
     else
       render new:, status: :unprocessable_entity
     end
+    authorize @challenge
   end
 
   def destroy
+      authorize @challenge
       @challenge.destroy!
-      redirect_to root_path
+      redirect_to root_path, status: :see_other
 
   end
 
-  def method_name
+  # def challenge_status
+  #   #necesita un start date y termina con la duracion
+  #   @
+  #   if @challenge.status == "created"
+  #     @challenge.status = "started" if @challenge.start
+  #   elsif @challenge.status == "created"
+  #     @challenge.status = "finished"
+  #   end
 
-  end
 
   private
+
+  # def start
+  #   @challenge = Challenge.find(params[:id])
+  #   @challenge.
+  # end
 
   def params_challenge
     params.require(:challenge).permit(:name, :duration, :challenge_type, :activity, :status, :global_score, :user_id)
