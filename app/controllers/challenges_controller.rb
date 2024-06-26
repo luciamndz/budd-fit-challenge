@@ -7,7 +7,6 @@ class ChallengesController < ApplicationController
   end
 
   def show
-    
   end
 
   def new
@@ -32,7 +31,7 @@ class ChallengesController < ApplicationController
   private
 
   def params_challenge
-    params.require(:challenge).permit(:name, :duration,:challenge_type, :activity, :status,:global_score, :user_id)
+    params.require(:challenge).permit(:name, :duration, :challenge_type, :activity, :status, :global_score, :user_id)
   end
 
   def set_admin
