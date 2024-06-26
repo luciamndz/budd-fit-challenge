@@ -1,8 +1,8 @@
 <h1><%= @challenge.name %></h1>
 
-        <%= link_to "Delete Challenge", challenge_path(@challenge), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the challenge"}, class: "btn btn-outline-danger"%>
-        
+        <%= button_to "Delete Challenge", @challenge, class: "btn btn-outline-danger", method: :delete if policy(@challenge).destroy? %>
 
+<% console %>
 <p><%= @challenge.duration %></p>
 <p><%= @challenge.challenge_type %></p>
 <p><%= @challenge.activity %></p>
