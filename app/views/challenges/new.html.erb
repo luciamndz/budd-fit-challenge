@@ -4,10 +4,9 @@
       <h1>Create your own challenge!</h1>
       <%= simple_form_for @challenge do |f| %>
         <%= f.input :name %>
-        <%= f.input :challenge_type %>
-        <%= f.input :activity %>
+        <%= f.input :challenge_type, collection: Challenge::TYPES, prompt: "Elije la privacidad de tu challenge" %>
+        <%= f.input :activity, collection: Challenge::ACTIVITIES, prompt: "Selecciona la actividad" %>
         <%= f.input :duration %>
-        <p>Invite your friends: <%= f.input :user_id %> </p>
         <%= f.input :status, as: :hidden, input_html: { value: "created" } %>
         <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
 
