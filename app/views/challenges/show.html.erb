@@ -1,5 +1,11 @@
 <h1><%= @challenge.name %></h1>
 
+        <%= link_to "Delete Challenge", challenge_path(@challenge), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the challenge"}, class: "btn btn-outline-danger"%>
+        
+
+<p><%= @challenge.duration %></p>
+<p><%= @challenge.challenge_type %></p>
+<p><%= @challenge.activity %></p>
 <p>Aqui tenemos el display de los miembros del challenge:</p>
 
 <%# <% @challenge.users.each do |user| %>
@@ -12,6 +18,8 @@
     <%# <% end %>
   <%# </ul> %>
 <%# <% end %>
-
-<p>Para eliminar un usuario del challenge tenemos que cambiar su estado de active a inactive</p>
-<p>hay que hacer un simple form, que el boton sea un submit que rediriga al controller challenge_infos#update</p>
+<ul>
+<% @challenge.users.each do |user| %>
+<li> <%= @user.nickname %></li>
+<% end %>
+</ul>

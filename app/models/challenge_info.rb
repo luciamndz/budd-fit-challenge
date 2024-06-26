@@ -7,4 +7,5 @@ class ChallengeInfo < ApplicationRecord
 
   belongs_to :user
   belongs_to :challenge
+  has_many :exercise_sessions, dependent: :destroy
 end
