@@ -1,5 +1,7 @@
 class Challenge < ApplicationRecord
   include PgSearch::Model
+  belongs_to :user
+  has_many :invites
 
   TYPES = ["public", "private"].freeze
   STATUS = ["created", "active", "finished"].freeze
@@ -9,15 +11,11 @@ class Challenge < ApplicationRecord
   validates :status, inclusion: { in: STATUS }
   validates :activity, inclusion: { in: ACTIVITIES }
 
-  belongs_to :user
-  has_many :invites
 
-  pg_search_scope :global_search,
-                  against: %[name activity],
-                  associated_against: {
-                    user: %i[nickname]
-                  },
+
+  pg_search_scope :search_by_name_and_activity,
+                  against: [ :name, :activity ],
                   using: {
-                    tsearch: {prefix: true}
+                    tsearch: { prefix: true }
                   }
 end

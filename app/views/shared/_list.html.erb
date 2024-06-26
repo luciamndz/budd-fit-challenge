@@ -1,14 +1,11 @@
-<div>
-  <p>
-  <% if params[:query].blank? %>
-      <%= pluralize challenge.count, "challenge" %> found
+<div >
+  <div class="challenges" data-search-challenges-target="list">
+  <% if @challenges.any? %>
+      <% @challenges.each do |challenge| %>
+        <%= render "challenge", challenge: challenge %>
+      <% end %>
     <% else %>
-      <%= "No results found" %>
-    <% end %>
-  </p>
-  <div class="challenges" >
-    <% challenges.each do |challenge| %>
-      <%= render "challenge", challenge: challenge %>
+      <%= "No challenges" %>
     <% end %>
   </div>
 </div>

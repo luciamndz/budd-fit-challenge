@@ -1,7 +1,7 @@
-<%= simple_form_for :search, url: root_path, method: :get do |f| %>
+<%= simple_form_for :search, url: root_path, method: :get, data: { search_challenges_target:"form"} do |f| %>
   <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name=query" id="search_query" placeholder="Search by Challenge name or Activity Type" />
-    <button name="button" type="submit" class="btn btn-flat">
+    <input class="form-control string required" type="text" name="query" id="search_query" placeholder="Search by Challenge name or Activity Type" data-search-challenges-target="input" data-action="keyup->search-challenges#update"/>
+    <button  type="submit" class="btn btn-flat">
       <i class="fas fa-search"></i> Search
     </button>
   </div>
