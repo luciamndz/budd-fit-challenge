@@ -18,7 +18,7 @@ class InvitesController < ApplicationController
   end
 
   def edit
-    #PENDIENTES 
+    #PENDIENTES
   end
 
   def update

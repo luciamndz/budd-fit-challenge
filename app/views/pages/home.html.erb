@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div>
+<h1>challenges</h1>
+
+<div data-controller="search-challenges">
+<%= render "shared/search" %>
+<%= render "shared/list", challenges: @challenge %>
+</div>
+</div>
