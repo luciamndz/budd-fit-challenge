@@ -1,4 +1,9 @@
 class Challenge < ApplicationRecord
+  include PgSearch::Model
+  belongs_to :user
+  has_many :invites
+  has_many :challenge_infos
+  has_many :users, through: :challenge_infos
 
   TYPES = ["public", "private"].freeze
   STATUS = ["created", "active", "finished"].freeze
@@ -8,25 +13,10 @@ class Challenge < ApplicationRecord
   validates :status, inclusion: { in: STATUS }
   validates :activity, inclusion: { in: ACTIVITIES }
 
-  belongs_to :user
-  has_many :invites
-  has_many :challenge_infos
-  has_many :users, through: :challenge_infos
 
-#   Event.users
-
-#   ´pedriot 100
-#   ñu 12
-#   omae 422
-
-#   Users.evemt
-
-#   challenge.users.each do |u|
-#    <li> u.name</li>
-#     if challenge.user == current_user
-#       boton de destruir, este boton te redirige a el controllador challenge_info#destroy
-#     end
-#   [
-#     User1
-#     User2
+  pg_search_scope :search_by_name_and_activity,
+                  against: [ :name, :activity ],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
