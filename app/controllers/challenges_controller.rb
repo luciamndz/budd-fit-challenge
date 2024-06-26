@@ -3,11 +3,12 @@ class ChallengesController < ApplicationController
   before_action :find_challenge, only: [:show, :destroy]
 
   def index
+
     @challenges = Challenge.all
   end
 
   def show
-    
+
   end
 
   def new
@@ -27,6 +28,12 @@ class ChallengesController < ApplicationController
   def destroy
     @challenge.destroy!
     redirect_to root_path
+  end
+
+  def kick_user
+    @user = User.find(@challenge.user_id)
+    @challenge.user = @user
+    @challenge.user.destroy
   end
 
   private

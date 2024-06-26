@@ -1,0 +1,11 @@
+<div >
+  <div class="challenges" data-search-challenges-target="list">
+  <% if @challenges.any? %>
+      <% @challenges.each do |challenge| %>
+        <%= render "challenge", challenge: challenge %>
+      <% end %>
+    <% else %>
+      <%= "No challenges" %>
+    <% end %>
+  </div>
+</div>
