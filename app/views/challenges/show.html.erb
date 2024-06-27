@@ -24,3 +24,13 @@
     <% end %>
   </ul>
 <% end %>
+
+<p>Aqui tenemos el display del score de cada usuario en una lista</p>
+<% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
+  <ul>
+  <li>
+    <%= challenge_info.user.nickname  %>Score:<%= challenge_info.user_score %>
+    <%= cl_image_tag challenge_info.user.photo.key, class:"height: 50px", id:"img-card"%>
+  </li>
+  </ul>
+<% end %>
