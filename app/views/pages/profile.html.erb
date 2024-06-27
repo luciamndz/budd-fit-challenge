@@ -1,0 +1,18 @@
+<h1>My profile</h1>
+
+<% @invites.each do |invite| %>
+  <p><%= "From: #{invite.inviter.nickname}" %></p>
+  <p><%= "To: #{current_user.nickname}" %></p>
+  <p><%= "Join my challenge: #{invite.challenge.name}" %></p>
+
+  <%= simple_form_for invite, url: invite_path(invite) do |f| %>
+    <%= f.hidden_field :status, value: "Accepted" %>
+    <%= f.submit value:"Accept", class: "btn btn-primary" %>
+  <% end %>
+  <%= simple_form_for invite, url: invite_path(invite) do |f| %>
+    <%= f.hidden_field :status, value: "Declined" %>
+    <%= f.submit value:"Decline", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+<% console %>
+<%# pendiente colocar botones par aceptar / delcinar invitacion %>

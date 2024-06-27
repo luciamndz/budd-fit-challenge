@@ -1,0 +1,28 @@
+=> 
+[[32m#<ChallengeInfo:0x00007f4924eaaeb0[0m
+  id: [34m[1m1[0m,
+  user_score: [34m[1m1[0m,
+  attendance: [36m[1mfalse[0m,
+  user_id: [34m[1m1[0m,
+  challenge_id: [34m[1m1[0m,
+  created_at: Thu, 27 Jun 2024 16:11:28.200478000 UTC +00:00,
+  updated_at: Thu, 27 Jun 2024 16:11:28.200478000 UTC +00:00,
+  user_status: [31m[1m"[0m[31mactive[0m[31m[1m"[0m[32m>[0m,
+ [32m#<ChallengeInfo:0x00007f4924df8cb0[0m
+  id: [34m[1m2[0m,
+  user_score: [34m[1m1[0m,
+  attendance: [36m[1mfalse[0m,
+  user_id: [34m[1m2[0m,
+  challenge_id: [34m[1m1[0m,
+  created_at: Thu, 27 Jun 2024 16:11:28.212958000 UTC +00:00,
+  updated_at: Thu, 27 Jun 2024 16:11:28.212958000 UTC +00:00,
+  user_status: [31m[1m"[0m[31mactive[0m[31m[1m"[0m[32m>[0m,
+ [32m#<ChallengeInfo:0x00007f4924dff970[0m
+  id: [34m[1m3[0m,
+  user_score: [34m[1m1[0m,
+  attendance: [36m[1mfalse[0m,
+  user_id: [34m[1m3[0m,
+  challenge_id: [34m[1m1[0m,
+  created_at: Thu, 27 Jun 2024 16:11:28.221012000 UTC +00:00,
+  updated_at: Thu, 27 Jun 2024 16:11:28.221012000 UTC +00:00,
+  user_status: [31m[1m"[0m[31mactive[0m[31m[1m"[0m[32m>[0m]
