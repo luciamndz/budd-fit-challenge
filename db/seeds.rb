@@ -6,19 +6,19 @@ Invite.destroy_all
 puts "Creating users.."
 
 User.create!(
-  email: "lu@gmail.com",
+  email: "lus@gmail.com",
   password: "123456",
-  nickname: "luciamndz"
+  nickname: "luciamndzz"
 )
 User.create!(
-  email: "xtrem@gmail.com",
+  email: "xtremo@gmail.com",
   password: "123456",
-  nickname: "tomasxtrm"
+  nickname: "tomasxtrmo"
 )
 User.create!(
-  email: "magikmaik@gmail.com",
+  email: "magikmaikk@gmail.com",
   password: "123456",
-  nickname: "maikmagik"
+  nickname: "maikmagikk"
 )
 
 puts "Creating Challenges"
@@ -26,16 +26,16 @@ puts "Creating Challenges"
 Challenge.create!(
   name: "SET UP CHALLENGE",
   duration: 7,
-  challenge_type: "public",
-  activity: "open",
+  challenge_type: "Public",
+  activity: "Open",
   status: "created",
   user_id: 1
 )
 Challenge.create!(
   name: "ANOTHER CHALLENGE",
   duration: 7,
-  challenge_type: "private",
-  activity: "open",
+  challenge_type: "Private",
+  activity: "Open",
   status: "created",
   user_id: 1
 )
@@ -75,7 +75,7 @@ ChallengeInfo.create!(
 puts "Creating exercise sesions..."
 
 exercise = ExerciseSession.create!(
-  activity: "swimming",
+  activity: "Swimming",
   time_length: 1,
   description: "test",
   like: 1,
@@ -96,7 +96,7 @@ ExerciseComment.create!(
 puts "Creating an invite!!!"
 
 Invite.create!(
-  status: "pending",
+  status: "Pending",
   invitee_id: 2,
   inviter_id: 1,
   challenge_id: 1

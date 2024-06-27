@@ -8,17 +8,21 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :challenges, :except => [:edit, :update] do
-    resources :challenge_infos, :only => [:new, :create, :index]
+    resources :challenge_infos, only: [:new, :create, :index]
     resources :invites, :only => [:new, :create]
   end
+  resources :challenge_infos, only: [:edit, :update] do
+    resources :exercise_sessions, only: [:new, :create, :index]
+  end
   resources :invites, :only => [:show, :edit, :update]
-  get "/challenges/:challenge_id/challenge_infos/top3", to: "challenge_infos#top3", as: :top_3
-  
+  resources :exercise_sessions, only: [:show, :destroy, :edit, :update]
+  post "change_status", to: "challenge_infos#change_status", as: :change_status
+  get "/challenges/:challenge_id/challenge_infos/top", to: "challenge_infos#top", as: :top
+  get "my_friends", to: "exercise_sessions#my_friends", as: :my_friends
+  post "like", to: "exercise_sessions#like", as: :like
+  get "profile", to: "pages#profile", as: :profile
+
+  resources :users, only: [:index, :show]
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :users, only: [:index, :show] do
-    collection do
-      get "profile", to: "users#profile", as: :my_profile
-    end
-  end
 end

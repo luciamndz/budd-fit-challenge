@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
 
-  before_action :find_challenge, only: [:show, :destroy]
+  before_action :find_challenge, only: [:show, :destroy, :top]
   before_action :set_admin, only: [:show]
 
   def index
@@ -8,7 +8,9 @@ class ChallengesController < ApplicationController
   end
 
   def show;
-  authorize @challenge
+    @invite = Invite.new
+    authorize @challenge
+    authorize @invite
   end
 
   def new
@@ -28,10 +30,9 @@ class ChallengesController < ApplicationController
   end
 
   def destroy
-      authorize @challenge
-      @challenge.destroy!
-      redirect_to root_path, status: :see_other
-
+    authorize @challenge
+    @challenge.destroy!
+    redirect_to root_path, status: :see_other
   end
   #>>>>>>>>>>>>>>>>
   # def challenge_status
@@ -42,7 +43,6 @@ class ChallengesController < ApplicationController
   # end
   #   end
   #>>>>>>>>>>>>>>>>>>>>>>
-
 
   private
 
