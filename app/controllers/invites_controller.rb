@@ -1,18 +1,19 @@
 class InvitesController < ApplicationController
 
-  def new
-    @invite = Invite.new
-    authorize @invite
-  end
+  def new;end
 
   def create #corregir
-    @invite = Invite.new(params_invite)
+    @challenge = Challenge.find(params[:challenge_id])
+    @invite = Invite.new(invite_params)
+    authorize @invite
+    authorize @challenge
+    @invite.challenge = @challenge
+    @invite.inviter = current_user
     if @invite.save!
       redirect_to challenge_path(@invite.challenge)
     else
       render new:, status: :unprocessable_entity
     end
-    authorize @invite
   end
 
   def show
@@ -23,23 +24,20 @@ class InvitesController < ApplicationController
   def edit;end
 
   def update
-    # este metodo sirve para cuando un invitee acepte o rechace una invitiacion mandada por un inviter
-    if invite.valid?
-      invite.save!
-      if invite.status == "accepted"
-        redirect_to challenge_path(@invite.challenge)
-      elsif invite.status == "declined"
-        redirect_to root_path
+    @invite = Invite.find(params[:id])
+    authorize @invite
+    if @invite.update(invite_params)
+      case @invite.status
+      when "Accepted" then redirect_to challenge_path(@invite.challenge)
+      when "Declined" then redirect_to profile_path
       end
     else
-      render new:, status: :unprocessable_entity
+      render "pages/profile", status: :unprocessable_entity
     end
-    authorize @invite
   end
 
   private
-
-  def params_invite
-    params.require(:invite).permit(:status, :invitee_id, :inviter_id, :challenge_id)
+  def invite_params
+    params.require(:invite).permit(:invitee_id, :status)
   end
 end

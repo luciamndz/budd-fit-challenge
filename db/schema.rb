@@ -98,12 +98,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_26_165700) do
   end
 
   create_table "invites", force: :cascade do |t|
-    t.string "status", default: "pending"
+    t.string "status", default: "Pending"
+    t.bigint "inviter_id"
+    t.bigint "invitee_id"
     t.bigint "challenge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "invitee_id"
-    t.bigint "inviter_id"
     t.index ["challenge_id"], name: "index_invites_on_challenge_id"
     t.index ["invitee_id"], name: "index_invites_on_invitee_id"
     t.index ["inviter_id"], name: "index_invites_on_inviter_id"
@@ -132,4 +132,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_26_165700) do
   add_foreign_key "frienships", "users", column: "asker_id"
   add_foreign_key "frienships", "users", column: "reciever_id"
   add_foreign_key "invites", "challenges"
+  add_foreign_key "invites", "users", column: "invitee_id"
+  add_foreign_key "invites", "users", column: "inviter_id"
 end

@@ -19,7 +19,7 @@
     <li><%= challenge_info.user.nickname %></li>
     <% if @challenge.user == current_user %>
       <%= simple_form_for challenge_info, url: challenge_info_path(challenge_info) do |f| %>
-        <%= f.submit class: "btn btn-primary" %>
+        <%= f.submit value:"delete", class: "btn btn-primary" %>
       <% end %>
     <% end %>
   </ul>
@@ -30,7 +30,15 @@
   <ul>
   <li>
     <%= challenge_info.user.nickname  %>Score:<%= challenge_info.user_score %>
-    <%# <%= cl_image_tag challenge_info.user.photo.key, class:"height: 50px", id:"img-card"%> %>
+    <%# <%= cl_image_tag challenge_info.user.photo.key, class:"height: 50px", id:"img-card"%>
   </li>
   </ul>
+<% end %>
+
+<%= simple_form_for [@challenge, @invite] do |f| %>
+  <%# <%= f.input :invitee, collection: User.where.not(id: @challenge.users.select(:id)).map(&:nickname) %>
+  <%= f.input :invitee_id,
+              collection: User.where.not(id: @challenge.users.select(:id)).map { |user| [user.nickname, user.id] },
+              label_method: :first, value_method: :second, label: 'Invitee' %>
+  <%= f.submit %>
 <% end %>

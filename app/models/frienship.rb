@@ -1,5 +1,5 @@
 class Frienship < ApplicationRecord
-  STATUS = ["pending", "accepted", "declined"]
+  STATUS = ["Pending", "Accepted", "Declined"]
 
   validates :status, inclusion: { in: STATUS }
 

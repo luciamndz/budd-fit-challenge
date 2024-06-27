@@ -1,6 +1,6 @@
 class ChallengeInfosController < ApplicationController
 
-  before_action :find_challenge_info, only: [:show, :change_status]
+  before_action :find_challenge_info, only: [:show, :change_status, :top]
   def new
     @challenge_info = ChallengeInfo.new
   end
@@ -25,7 +25,22 @@ class ChallengeInfosController < ApplicationController
 
   def show;end
 
-  def top;end
+  # def top
+  #   #los 3 top scores del challenge!!
+  #   @challenge_infos = ChallengeInfo.all
+  #   @challenge_infos.each do |challenge_info|
+
+  #     challene_info.user_score
+  #   end
+  #   #guardar los scores en un array
+  #   #ordenar ese array de menor a mayor por score
+  #   #hacer el display de los top 3 usuarios
+  #   users_info = []
+  #   @challenge.challenge_infos.each do |challenge_info|
+  #     users_info << challenge_info.attributes
+  #     users_info.sort
+  #   end
+  # end
 
   private
   def find_challenge_info

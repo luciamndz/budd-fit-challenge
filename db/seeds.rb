@@ -6,19 +6,19 @@ Invite.destroy_all
 puts "Creating users.."
 
 User.create!(
-  email: "lu@gmail.com",
+  email: "lus@gmail.com",
   password: "123456",
-  nickname: "luciamndz"
+  nickname: "luciamndzz"
 )
 User.create!(
-  email: "xtrem@gmail.com",
+  email: "xtremo@gmail.com",
   password: "123456",
-  nickname: "tomasxtrm"
+  nickname: "tomasxtrmo"
 )
 User.create!(
-  email: "magikmaik@gmail.com",
+  email: "magikmaikk@gmail.com",
   password: "123456",
-  nickname: "maikmagik"
+  nickname: "maikmagikk"
 )
 
 puts "Creating Challenges"
@@ -96,7 +96,7 @@ ExerciseComment.create!(
 puts "Creating an invite!!!"
 
 Invite.create!(
-  status: "pending",
+  status: "Pending",
   invitee_id: 2,
   inviter_id: 1,
   challenge_id: 1
