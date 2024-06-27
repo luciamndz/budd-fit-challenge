@@ -34,15 +34,15 @@ class ChallengesController < ApplicationController
     @challenge.destroy!
     redirect_to root_path, status: :see_other
   end
-
+  #>>>>>>>>>>>>>>>>
   # def challenge_status
-  #   #necesita un start date y termina con la duracion
-  #   @
-  #   if @challenge.status == "created"
-  #     @challenge.status = "started" if @challenge.start
-  #   elsif @challenge.status == "created"
-  #     @challenge.status = "finished"
+  # if Date.today == @challenge.start_date.value
+  # @challenge.status = "started"
+  # elsif @Date.today == @challenge.end_date.value
+  # @challenge.status = "finished"
+  # end
   #   end
+  #>>>>>>>>>>>>>>>>>>>>>>
 
   private
 
@@ -52,7 +52,7 @@ class ChallengesController < ApplicationController
   # end
 
   def params_challenge
-    params.require(:challenge).permit(:name, :duration, :challenge_type, :activity, :status, :global_score, :user_id)
+    params.require(:challenge).permit(:name, :duration, :challenge_type, :activity, :status, :global_score, :user_id, :start_date, :end_date)
   end
 
   def find_challenge
