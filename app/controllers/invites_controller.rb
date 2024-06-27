@@ -1,6 +1,9 @@
 class InvitesController < ApplicationController
 
-  def new;end
+  def new
+    @invite = Invite.new
+    authorize @invite
+  end
 
   def create #corregir
     @invite = Invite.new(params_invite)
@@ -9,10 +12,12 @@ class InvitesController < ApplicationController
     else
       render new:, status: :unprocessable_entity
     end
+    authorize @invite
   end
 
   def show
     @invite = Invite.find(params[:id])
+    authorize @invite
   end
 
   def edit;end
@@ -29,6 +34,7 @@ class InvitesController < ApplicationController
     else
       render new:, status: :unprocessable_entity
     end
+    authorize @invite
   end
 
   private
