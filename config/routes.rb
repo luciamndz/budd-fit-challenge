@@ -8,12 +8,14 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :challenges, :except => [:edit, :update] do
-    resources :challenge_infos, :only => [:new, :create, :index]
+    resources :challenge_infos, only: [:new, :create, :index]
     resources :invites, :only => [:new, :create]
   end
+  resources :challenge_infos, only: [:edit, :update]
   resources :invites, :only => [:show, :edit, :update]
+  post "change_status", to: "challenge_infos#change_status", as: :change_status
   get "/challenges/:challenge_id/challenge_infos/top3", to: "challenge_infos#top3", as: :top_3
-  
+
   # Defines the root path route ("/")
   # root "posts#index"
   resources :users, only: [:index, :show] do

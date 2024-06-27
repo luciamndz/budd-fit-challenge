@@ -26,16 +26,16 @@ puts "Creating Challenges"
 Challenge.create!(
   name: "SET UP CHALLENGE",
   duration: 7,
-  challenge_type: "public",
-  activity: "open",
+  challenge_type: "Public",
+  activity: "Open",
   status: "created",
   user_id: 1
 )
 Challenge.create!(
   name: "ANOTHER CHALLENGE",
   duration: 7,
-  challenge_type: "private",
-  activity: "open",
+  challenge_type: "Private",
+  activity: "Open",
   status: "created",
   user_id: 1
 )
@@ -75,7 +75,7 @@ ChallengeInfo.create!(
 puts "Creating exercise sesions..."
 
 exercise = ExerciseSession.create!(
-  activity: "swimming",
+  activity: "Swimming",
   time_length: 1,
   description: "test",
   like: 1,

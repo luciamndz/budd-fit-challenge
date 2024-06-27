@@ -6,20 +6,21 @@
 <p><%= @challenge.duration %></p>
 <p><%= @challenge.challenge_type %></p>
 <p><%= @challenge.activity %></p>
-<p>Aqui tenemos el display de los miembros del challenge:</p>
 
-<%# <% @challenge.users.each do |user| %>
-  <%# <ul> %>
-    <%# <li><%= user.nickname %></li>
-    <%# <% if @challenge.user == current_user %>
-    <%# <simple form for> %>
-      <%# <input class='hidden' value= challenge_info_id> %>
-      <%# <button class="submit">Delete user</button> esto redirige a challenge_infos#update %>
-    <%# <% end %>
-  <%# </ul> %>
-<%# <% end %>
 <ul>
-<% @challenge.users.each do |user| %>
-<li> <%= @user.nickname %></li>
-<% end %>
+  <% @challenge.users.each do |user| %>
+    <li> <%= user.nickname %></li>
+  <% end %>
 </ul>
+
+<p>Aqui tenemos el display de los miembros del challenge en una lista:</p>
+<% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
+  <ul>
+    <li><%= challenge_info.user.nickname %></li>
+    <% if @challenge.user == current_user %>
+      <%= simple_form_for challenge_info, url: challenge_info_path(challenge_info) do |f| %>
+        <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
