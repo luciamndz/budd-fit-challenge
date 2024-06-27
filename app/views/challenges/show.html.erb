@@ -13,7 +13,7 @@
   <% end %>
 </ul>
 
-<p>Aqui tenemos el display de los miembros del challenge:</p>
+<p>Aqui tenemos el display de los miembros del challenge en una lista:</p>
 <% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
   <ul>
     <li><%= challenge_info.user.nickname %></li>
