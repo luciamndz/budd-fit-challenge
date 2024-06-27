@@ -2,17 +2,16 @@
 
 <%= button_to "Delete Challenge", @challenge, class: "btn btn-outline-danger", method: :delete if policy(@challenge).destroy? %>
 <div>
-<p><%= @challenge.duration %></p>
 <p><%= @challenge.challenge_type %></p>
 <p><%= @challenge.activity %></p>
 
-<% final = @challenge.end_date.split("-").map(&:to_i) %>
-<% start = @challenge.start_date.split("-").map(&:to_i) %>
-<% duration = (Date.new(final[0],final[1],final[2])-Date.new(start[0],start[1],start[2])).to_i %>
-<p>Challenge duration: <%= duration %></p>
-<p id="days"> <%= @challenge.start_date %></p>
-<p><%= @challenge.end_date %></p>
-</div>
+<%# <% final = @challenge.end_date.split("-").map(&:to_i) %>
+<%# <% start = @challenge.start_date.split("-").map(&:to_i) %> %> %>
+<%# <% duration = (Date.new(final[0],final[1],final[2])-Date.new(start[0],start[1],start[2])).to_i %>
+<%# <p>Challenge duration: <%= duration %></p> %>
+<%# <p id="days"> <%= @challenge.start_date %></p> %>
+<%# <p><%= @challenge.end_date %></p> %>
+<%# </div> %> %>
 
 <p>Aqui tenemos el display de los miembros del challenge en una lista:</p>
 <% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>

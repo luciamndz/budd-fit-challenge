@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_27_211122) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_27_214849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -88,16 +88,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_27_211122) do
     t.index ["challenge_info_id"], name: "index_exercise_sessions_on_challenge_info_id"
   end
 
-  create_table "frienships", force: :cascade do |t|
-    t.string "status"
-    t.bigint "asker_id"
-    t.bigint "reciever_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["asker_id"], name: "index_frienships_on_asker_id"
-    t.index ["reciever_id"], name: "index_frienships_on_reciever_id"
-  end
-
   create_table "invites", force: :cascade do |t|
     t.string "status", default: "Pending"
     t.bigint "inviter_id"
@@ -130,8 +120,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_27_211122) do
   add_foreign_key "challenges", "users"
   add_foreign_key "exercise_comments", "exercise_sessions"
   add_foreign_key "exercise_sessions", "challenge_infos"
-  add_foreign_key "frienships", "users", column: "asker_id"
-  add_foreign_key "frienships", "users", column: "reciever_id"
   add_foreign_key "invites", "challenges"
   add_foreign_key "invites", "users", column: "invitee_id"
   add_foreign_key "invites", "users", column: "inviter_id"

@@ -25,7 +25,6 @@ puts "Creating Challenges"
 
 Challenge.create!(
   name: "SET UP CHALLENGE",
-  duration: 7,
   challenge_type: "Public",
   activity: "Open",
   status: "created",
@@ -33,7 +32,6 @@ Challenge.create!(
 )
 Challenge.create!(
   name: "ANOTHER CHALLENGE",
-  duration: 7,
   challenge_type: "Private",
   activity: "Open",
   status: "created",
