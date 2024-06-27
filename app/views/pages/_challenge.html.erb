@@ -1,6 +1,9 @@
-<div>
-<h1><%= challenge.name %></h1>
-<p><%= challenge.duration %></p>
-<p><%= challenge.activity %></p>
-<p>id <%= challenge.id %></p>
+<div class="card" style="width: 18rem;">
+  <img src="" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= challenge.name %></h5>
+    <h6 class="card-text"><%= challenge.activity %></h6>
+    <h6 class="card-text"><%= challenge.start_date %></h6>
+    <%= link_to "Check Challenge", challenge_path(challenge), class:"btn btn-outline-secondary"%>
+  </div>
 </div>
