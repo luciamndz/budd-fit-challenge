@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :challenge_infos
   has_many :challenges, through: :challenge_infos
   has_one_attached :photo
-
+  has_many :comments, dependent: :destroy
 end

@@ -1,34 +1,30 @@
 <div class="container">
-
   <%= render "card" %>
 
-<%= link_to  %>
-<%= button_to "Delete Challenge", @challenge, class: "btn btn-outline-danger", method: :delete if policy(@challenge).destroy? %>
+  <div class="row">
+    <h2>Challenge's Buddies</h2>
+    <div class="d-flex p-3" >
+      <% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
+        <div class="m-2"><%= cl_image_tag challenge_info.user.photo.key, class:"height: 50px avatar-large", id:"img-card"%></div>
+      <% end %>
+    </div>
+  </div>
 
-<div class="row">
-  <h2>Members</h2>
-
-  <div class="d-flex p-3" >
+  <div class="container">
+    <p>Score</p>
     <% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
-      <%= render "avatars" %>
+    <ul>
+      <li><%= challenge_info.user.nickname%> Score: <%= challenge_info.user_score %></li>
+    </ul>
     <% end %>
   </div>
-</div>
 
-<div class="container">
+  <%= link_to "Add evidence", new_challenge_info_exercise_session_path(@challenge), class:"btn btn-outline-secondary"%>
 
-  <p>Score</p>
-  <% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
-  <ul>
-    <li><%= challenge_info.user.nickname%> Score: <%= challenge_info.user_score %> <%# <%= cl_image_tag challenge_info.user.photo.key, class:"height: 50px", id:"img-card"%></li>
-  </ul>
+  <%= simple_form_for [@challenge, @invite] do |f| %>
+    <%= f.input :invitee_id,
+                collection: User.where.not(id: @challenge.users.select(:id)).map { |user| [user.nickname, user.id] },
+                label_method: :first, value_method: :second, label: 'Invitee' %>
+    <%= f.submit %>
   <% end %>
-</div>
-
-<%= simple_form_for [@challenge, @invite] do |f| %>
-  <%= f.input :invitee_id,
-              collection: User.where.not(id: @challenge.users.select(:id)).map { |user| [user.nickname, user.id] },
-              label_method: :first, value_method: :second, label: 'Invitee' %>
-  <%= f.submit %>
-<% end %>
 </div>

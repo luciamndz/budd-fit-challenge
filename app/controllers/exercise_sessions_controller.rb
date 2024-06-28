@@ -15,6 +15,7 @@ class ExerciseSessionsController < ApplicationController
     @exercise_session = ExerciseSession.new(params_exercise_sessions)
     @challenge_info = ChallengeInfo.find(params[:challenge_info_id])
     @exercise_session.challenge_info = @challenge_info
+    @exercise_session.challenge_info.user = current_user
     if @exercise_session.save!
       redirect_to @exercise_session
     else

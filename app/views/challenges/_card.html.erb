@@ -1,8 +1,8 @@
 <div class="card mt-5" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= @challenge.name %></h5>
-
-    <h6 class="card-subtitle mb-2 text-body-secondary"><%= @challenge.activity %></h6>
+    <h6><%= @challenge. %></h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary"><%="Activity: #{@challenge.activity}" %></h6>
     <div class ="d-flex justify-content-between">
       <p><%= @challenge.start_date %></p>
       <p><%= @challenge.end_date %></p>
@@ -12,4 +12,5 @@
     <% duration = (Date.new(final[0],final[1],final[2])-Date.new(start[0],start[1],start[2])).to_i %>
     <p>Challenge duration: <%= duration %> days</p>
   </div>
+  <%= button_to "Delete Challenge", @challenge, class: "btn btn-outline-danger", method: :delete if policy(@challenge).destroy? %>
 </div>
