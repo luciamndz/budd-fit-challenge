@@ -9,41 +9,24 @@ User.destroy_all
 
 puts "Creating users.."
 
-User.create!(
-  email: "lus@gmail.com",
-  password: "123456",
-  nickname: "luciamndzz"
-)
-User.create!(
-  email: "xtremo@gmail.com",
-  password: "123456",
-  nickname: "tomasxtrmo"
-)
-User.create!(
-  email: "magikmaikk@gmail.com",
-  password: "123456",
-  nickname: "maikmagikk"
-)
-User.create!(
-  email: "camilo@gmail.com",
-  password: "123456",
-  nickname: "camilost"
-)
-User.create!(
-  email: "sofia@gmail.com",
-  password: "123456",
-  nickname: "sofb"
-)
-User.create!(
-  email: "enrique@gmail.com",
-  password: "123456",
-  nickname: "enriquemtz"
-)
-User.create!(
-  email: "ceci@gmail.com",
-  password: "123456",
-  nickname: "cecigalv"
-)
+require 'open-uri'
+
+users = [
+  {email: "lucia@gmail.com", password: "123456", nickname: "luciamndzm", url: "https://avatars.githubusercontent.com/u/168779994?v=4"},
+  {email: "xtremo@gmail.com", password: "123456", nickname: "tomasxtrmo", url: "https://avatars.githubusercontent.com/u/169010849?v=4"},
+  {email: "magikmaikk@gmail.com", password: "123456", nickname: "maikmagikk", url: "https://avatars.githubusercontent.com/u/166572500?v=4"},
+  {email: "camilo@gmail.com", password: "123456", nickname: "camilost", url: "https://media.istockphoto.com/id/1477080051/es/foto/hombre-emprendedor-y-rostro-%C3%A9xito-en-el-lugar-de-trabajo-y-mentalidad-profesional-en-startup.webp?b=1&s=170667a&w=0&k=20&c=eM0TmKWGaJHlZEPplhrsgGM593-3CEa6G3huuyzw1k8="},
+  {email: "sofia@gmail.com", password: "123456", nickname: "sofb", url: "https://media.istockphoto.com/id/1305462732/es/foto/retrato-de-estudio-de-una-mujer-de-perfil-mirando-a-la-c%C3%A1mara.webp?b=1&s=170667a&w=0&k=20&c=9yoA0XAwPUk9Jg1u0xQYd4VH-H8jQV3ZcikTvq6-k5k="},
+  {email: "enrique@gmail.com", password: "123456", nickname: "enriquemtz", url: "https://img.freepik.com/fotos-premium/vista-frontal-hombre-sonriente-posando-brazos-cruzados_23-2148946155.jpg"},
+  {email: "ceci@gmail.com", password: "123456", nickname: "cecigalv", url: "https://media.istockphoto.com/id/1311084168/es/foto/mujer-asi%C3%A1tica-bastante-contenta-mira-a-la-c%C3%A1mara-con-risas-sinceras.webp?b=1&s=170667a&w=0&k=20&c=WHXWErWBkbPM-IPtPHMFd0ZQg1UYAIHZfEmx1zUcIPU="}
+]
+
+users.each do |user|
+  new_user = User.new(email: user[:email], password: user[:password], nickname: user[:nickname])
+  file = URI.open(user[:url])
+  new_user.photo.attach(io: file, filename: user[:nickname], content_type: "image/png")
+  new_user.save
+end
 
 puts "Creating Challenges"
 
