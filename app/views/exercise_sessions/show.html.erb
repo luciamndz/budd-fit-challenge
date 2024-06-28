@@ -1,5 +1,24 @@
 <div class="container">
 <h1>this is an exercise session</h1>
+
+<div class="container p-4 d-flex justify-content-center">
+  <div class="shadow-lg border border-light">
+    <div class="m-3">
+      <h1>Evidence Details</h1>
+      <p><strong>Activity:</strong> <%= @challenge_info.activity %></p>
+      <p><strong>Time Length (minutes):</strong> <%= @challenge_info.time_length %></p>
+      <p><strong>Description:</strong> <%= @challenge_info.description %></p>
+      <% if @challenge_info.photo.attached? %>
+        <p><strong>Photo:</strong></p>
+        <%= image_tag @challenge_info.photo %>
+      <% else %>
+        <p class="text-danger">No photo available</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
 <ul class="list-group">
 <% @exercise_session.exercise_comments.each do |exercise_comment| %>
 <p><%= exercise_comment.user.nickname%></p>
@@ -37,5 +56,4 @@
   </div>
 </div> %>
 <%= link_to "add comment", new_exercise_session_exercise_comment_path(@exercise_session), class:"btn btn-primary"%>
-
 </div>
