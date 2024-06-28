@@ -1,10 +1,11 @@
 <div>
 <%= render "banner" %>
-<div class="container">
-  <h1>All your challenges!</h1>
-  <div data-controller="search-challenges">
-    <%= render "shared/search" %>
-    <%= render "shared/list", challenges: @challenge %>
+  <div class="container">
+    <h1>All your challenges!</h1>
+    <%= link_to "Create a challenge", new_challenge_path, class:"btn btn-outline-secondary"%>
+    <div data-controller="search-challenges">
+      <%= render "shared/search" %>
+      <%= render "shared/list", challenges: @challenge %>
+    </div>
   </div>
-</div>
 </div>

@@ -11,7 +11,7 @@ class ExerciseSessionsController < ApplicationController
   end
 
   def create
-    @exercise_session = ExerciseSessions.new(params_exercise_sessions)
+    @exercise_session = ExerciseSession.new(params_exercise_sessions)
     @exercise_session.challenge_info.user = current_user
     if @exercise_session.save!
       redirect_to challenge_path(@exercise_session.challenge_info.challenge)
