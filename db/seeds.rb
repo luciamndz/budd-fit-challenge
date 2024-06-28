@@ -183,11 +183,13 @@ puts "Creating a comment..."
 
 ExerciseComment.create!(
   comments: "Está hermoso tu perro!",
-  exercise_session_id: 1
+  exercise_session_id: 1,
+  user: User.all.sample
 )
 ExerciseComment.create!(
   comments: "Deli! A mi me toca el miércoles!",
-  exercise_session_id: 2
+  exercise_session_id: 2,
+  user: User.all.sample
 )
 
 puts "Creating an invite!!!"
