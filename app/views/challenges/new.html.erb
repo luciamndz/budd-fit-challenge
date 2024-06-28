@@ -6,7 +6,6 @@
         <%= f.input :name, prompt: "Challenge Name"%>
         <%= f.input :challenge_type, collection: Challenge::TYPES, prompt: "Select privacy setting" %>
         <%= f.input :activity, collection: Challenge::ACTIVITIES, prompt: "Select an activity" %>
-        <%= f.input :duration %>
         <%= f.input :status, as: :hidden, input_html: { value: "created" } %>
         <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
         <%= f.input :start_date, as: :string, input_html: {data: {controller: "datepicker"}}%>

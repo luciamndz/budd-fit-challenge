@@ -1,39 +1,29 @@
-<h1><%= @challenge.name %></h1>
+<div class="container">
 
+  <%= render "card" %>
+
+<%= link_to  %>
 <%= button_to "Delete Challenge", @challenge, class: "btn btn-outline-danger", method: :delete if policy(@challenge).destroy? %>
-<div>
-<p><%= @challenge.challenge_type %></p>
-<p><%= @challenge.activity %></p>
 
-<%# <% final = @challenge.end_date.split("-").map(&:to_i) %>
-<%# <% start = @challenge.start_date.split("-").map(&:to_i) %> %> %>
-<%# <% duration = (Date.new(final[0],final[1],final[2])-Date.new(start[0],start[1],start[2])).to_i %>
-<%# <p>Challenge duration: <%= duration %></p> %>
-<%# <p id="days"> <%= @challenge.start_date %></p> %>
-<%# <p><%= @challenge.end_date %></p> %>
-<%# </div> %> %>
+<div class="row">
+  <h2>Members</h2>
 
-<p>Aqui tenemos el display de los miembros del challenge en una lista:</p>
-<% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
-  <ul>
-    <li><%= challenge_info.user.nickname %></li>
-    <% if @challenge.user == current_user %>
-      <%= simple_form_for challenge_info, url: challenge_info_path(challenge_info) do |f| %>
-        <%= f.submit value:"delete", class: "btn btn-primary" %>
-      <% end %>
+  <div class="d-flex p-3" >
+    <% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
+      <%= render "avatars" %>
     <% end %>
-  </ul>
-<% end %>
+  </div>
+</div>
 
-<p>Aqui tenemos el display del score de cada usuario en una lista</p>
-<% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
+<div class="container">
+
+  <p>Score</p>
+  <% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
   <ul>
-  <li>
-    <%= challenge_info.user.nickname  %>Score:<%= challenge_info.user_score %>
-    <%# <%= cl_image_tag challenge_info.user.photo.key, class:"height: 50px", id:"img-card"%>
-  </li>
+    <li><%= challenge_info.user.nickname%> Score: <%= challenge_info.user_score %> <%# <%= cl_image_tag challenge_info.user.photo.key, class:"height: 50px", id:"img-card"%></li>
   </ul>
-<% end %>
+  <% end %>
+</div>
 
 <%= simple_form_for [@challenge, @invite] do |f| %>
   <%# <%= f.input :invitee, collection: User.where.not(id: @challenge.users.select(:id)).map(&:nickname) %>
@@ -42,3 +32,4 @@
               label_method: :first, value_method: :second, label: 'Invitee' %>
   <%= f.submit %>
 <% end %>
+</div>
