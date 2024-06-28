@@ -1,0 +1,31 @@
+
+<h1>this is an exercise session</h1>
+<ul class="list-group">
+<% @exercise_session.exercise_comments.each do |exercise_comment| %>
+<p><%= exercise_comment.exercise_session.challenge_info.user_id %></p>
+<li class="list-group-item"><%= exercise_comment.comments %></li>
+<% end %>
+</ul>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  add comment modal
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Write a comment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to "add comment", new_exercise_session_exercise_comment_path(@exercise_session), class:"btn btn-primary"%>
+<% console %>
