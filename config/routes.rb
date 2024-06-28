@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   end
   resources :invites, :only => [:show, :edit, :update]
   resources :exercise_sessions, only: [:show, :destroy, :edit, :update] do
-    resources :exercise_comments, only: [:new, :create, :edit, :update, :destroy]
+    resources :exercise_comments, only: [:new, :create, :edit, :update]
   end
-
+  resources :exercise_comments, only: [:destroy]
   post "change_status", to: "challenge_infos#change_status", as: :change_status
   get "/challenges/:challenge_id/challenge_infos/top", to: "challenge_infos#top", as: :top
   get "my_friends", to: "exercise_sessions#my_friends", as: :my_friends
