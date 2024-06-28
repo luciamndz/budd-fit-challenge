@@ -36,6 +36,7 @@ class ExerciseSessionsController < ApplicationController
     authorize @exercise_session
     @exercise_session.save!
     redirecto_to challenge_path(@exercise_session.challenge_info.challenge)
+    redirecto_to challenge_path(@exercise_session.challenge_info.challenge)
   end
 
   def destroy

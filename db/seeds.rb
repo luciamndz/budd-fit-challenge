@@ -1,7 +1,11 @@
 puts "Cleaning database!"
-User.destroy_all
-Challenge.destroy_all
+ExerciseComment.destroy_all
+ExerciseSession.destroy_all
 Invite.destroy_all
+ChallengeInfo.destroy_all
+Challenge.destroy_all
+User.destroy_all
+
 
 puts "Creating users.."
 
@@ -79,12 +83,6 @@ Challenge.create!(
   start_date: "2024-09-22",
   end_date: "2024-10-15"
 )
-
-# require "open-uri"
-
-# url = "https://www.verywellfit.com/thmb/LfYZrMFhy9xIOPrvf0UAiZupQ2E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/barre-workout-plie-squat-574378583df78c6bb0220c8f.jpg"
-# file = URI.open(url)
-
 
 puts "Creating a challenge info for BUDDIES CHALLENGE"
 
@@ -182,29 +180,21 @@ exercise = ExerciseSession.create!(
 
 puts "Creating exercise sesions for BATCH 1686 FIT CHALLENGE"
 
-ExerciseSession.create!(
-  activity: "Gym",
-  time_length: 60,
-  description: "Cumpliendooo",
-  like: 1,
-  challenge_info_id: 2
-)
+require 'open-uri'
+exercise_sessions = [
+  {activity: "Gym", time_length: 60, description: "Cumpliendooo", like: 1, challenge_info_id: 2, evidence: "https://editorialtelevisa.brightspotcdn.com/dims4/default/f61b2f9/2147483647/strip/false/crop/1200x672+0+0/resize/1200x672!/quality/90/?url=https%3A%2F%2Fk2-prod-editorial-televisa.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fc1%2Fa5%2F545c7085455fb49eff7340aa91c8%2Fpersonas-publican-selfies-en-el-gym-tienen-proeblemas-psicologicos.jpg"},
+  {activity: "Pilates", time_length: 60, description: "Estuvo duro pero se logró", like: 1, challenge_info_id: 5, evidence: "https://media.istockphoto.com/id/1336608944/es/foto/hombre-musculoso-en-forma-haciendo-un-ejercicio-de-pilates-teaser-en-un-reformador.jpg?s=612x612&w=0&k=20&c=HxQSVoPeAQ5aU6TlrTTsE8RekEFX_4MEgnLOKR3s5m8="},
+  {activity: "Box", time_length: 60, description: "Empecé clases de box! A ver cómo me va!", like: 1, challenge_info_id: 6, evidence: "https://media.istockphoto.com/id/1133199973/es/foto/pareja-atletic-en-el-ring-de-boxeo.jpg?s=612x612&w=0&k=20&c=tojuaOfD2RluwNnVd926F14SyTZj8NYiU-5Ezi_M0KY="},
+  {activity: "Gym", time_length: 60, description: "Jalando fierro", like: 1, challenge_info_id: 3, evidence: "https://img.freepik.com/fotos-premium/selfie-retrato-fitness-hombre-negro-musculo-gimnasio-muestran-biceps-motivacion-bienestar-entrenamiento-cardiovascular-deportes-fuertes-cara-atleta-culturista-entrenamiento-ejercicio-objetivos_590464-145936.jpg"}
+]
 
-ExerciseSession.create!(
-  activity: "Pilates",
-  time_length: 60,
-  description: "Estuvo duro pero se logró",
-  like: 1,
-  challenge_info_id: 5
-)
-
-ExerciseSession.create!(
-  activity: "Box",
-  time_length: 60,
-  description: "Empecé clases de box! A ver cómo me va!",
-  like: 1,
-  challenge_info_id: 6
-)
+puts "Entrando en la iteración"
+exercise_sessions.each do |exercise|
+  exercise = ExerciseSession.new(activity: exercise[:activity], time_length: exercise[:time_length], description: exercise[:description], like: exercise[:like], challenge_info_id: exercise[:challenge_info_id], evidence: exercise[:evidence])
+  file = URI.open(exercise[:evidence])
+  exercise.photo.attach(io: file, filename: exercise[:activity], content_type: "image/png")
+  exercise.save
+end
 
 puts "Creating a comment..."
 
