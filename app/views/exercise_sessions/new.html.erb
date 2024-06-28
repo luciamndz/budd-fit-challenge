@@ -2,13 +2,14 @@
   <div class="shadow-lg border border-light">
     <div class="m-3">
       <h1>Create your exercise session!</h1>
-      <%= simple_form_for @exercise_session do |f| %>
+      <%= simple_form_for [@challenge_info, @exercise_session] do |f| %>
         <%= f.input :activity, label: "Activity", placeholder: "Enter activity" %>
         <%= f.input :time_length, label: "Time Length (minutes)", placeholder: "Enter time length" %>
-        <%= f.input :evidence, label: "Evidence", placeholder: "Enter evidence" %>
         <%= f.input :description, label: "Description", placeholder: "Enter description" %>
-        <%= f.input :challenge_info_id, label: "Challenge Info ID", placeholder: "Enter challenge info ID" %>
-        <%= f.input :photo, as: :file, label: "Photo" %>
+        <%= f.input :photo, as: :file, label: "Photo", required: true %>
+        <% if @exercise_session.errors.has_key?(:photo) %>
+          <p class="text-danger"><%= @exercise_session.errors[:photo].first %></p>
+        <% end %>
         <%= f.button :submit, "Create Exercise Session", class: "btn btn-primary" %>
       <% end %>
     </div>

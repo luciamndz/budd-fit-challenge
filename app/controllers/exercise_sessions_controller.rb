@@ -6,13 +6,15 @@ class ExerciseSessionsController < ApplicationController
   end
 
   def new
+    @challenge_info = ChallengeInfo.find(params[:challenge_info_id])
     @exercise_session = ExerciseSession.new
     authorize @exercise_session
   end
 
   def create
-    @exercise_session = ExerciseSessions.new(params_exercise_sessions)
-    @exercise_session.challenge_info.user = current_user
+    @exercise_session = ExerciseSession.new(params_exercise_sessions)
+    @challenge_info = ChallengeInfo.find(params[:challenge_info_id])
+    @exercise_session.challenge_info = @challenge_info
     if @exercise_session.save!
       redirect_to challenge_path(@exercise_session.challenge_info.challenge)
     else
@@ -38,14 +40,14 @@ class ExerciseSessionsController < ApplicationController
 
   def destroy
     @exercise_session.destroy!
-    redirect_to challenge_path(@exercise_sessions.challenge_info.challenge)
+    redirect_to challenge_path(@exercise_session.challenge_info.challenge)
     authorize @exercise_session
   end
 
   private
 
   def params_exercise_sessions
-    params.require(:exercise_sessions).permit(:activity, :time_length, :evidence, :description, :like, :created_at, :challenge_info_id, :photo)
+    params.require(:exercise_session).permit(:activity, :time_length, :evidence, :description, :like, :created_at, :challenge_info_id, :photo)
   end
 
   def find_exercise_session
