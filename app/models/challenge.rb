@@ -12,6 +12,8 @@ class Challenge < ApplicationRecord
   validates :challenge_type, inclusion: { in: TYPES }
   validates :status, inclusion: { in: STATUS }
   validates :activity, inclusion: { in: ACTIVITIES }
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 
 
   pg_search_scope :search_by_name_and_activity,

@@ -48,9 +48,15 @@ Challenge.create!(
   challenge_type: "Public",
   activity: "Open",
   status: "created",
+<<<<<<< home
   start_date: "2024-06-30",
   end_date: "2024-07-30",
   user_id: 1
+=======
+  user_id: 1,
+  start_date: "2024-08-15",
+  end_date: "2024-09-15"
+>>>>>>> master
 )
 Challenge.create!(
   name: "SURFERS CHALLENGE",
@@ -66,6 +72,7 @@ Challenge.create!(
   challenge_type: "Private",
   activity: "Open",
   status: "created",
+<<<<<<< home
   start_date: "2024-07-10",
   end_date: "2024-08-20",
   user_id: 1
@@ -78,6 +85,11 @@ Challenge.create!(
   start_date: "2024-07-09",
   end_date: "2024-08-30",
   user_id: 1
+=======
+  user_id: 1,
+  start_date: "2024-09-22",
+  end_date: "2024-10-15"
+>>>>>>> master
 )
 
 # require "open-uri"
