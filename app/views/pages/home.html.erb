@@ -1,6 +1,7 @@
 <div>
-<h1>challenges</h1>
+<%= render "banner" %>
 <div class="container">
+  <h1>All your challenges!</h1>
   <div data-controller="search-challenges">
     <%= render "shared/search" %>
     <%= render "shared/list", challenges: @challenge %>

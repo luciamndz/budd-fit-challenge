@@ -1,0 +1,24 @@
+.banner {
+  background-position: center;
+  padding: 200px 0;
+  background-image: url(https://www.entrenamiento.com/wp-content/uploads/2019/09/confianza-entrenar.jpg);
+  opacity: 0.8;
+  background-size: cover;
+  text-align: right;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 100px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.banner p {
+  font-size: 30px;
+  color: white;
+  opacity: 1;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family:'Courier New', Courier, monospace;
+}
