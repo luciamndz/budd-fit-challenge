@@ -26,7 +26,6 @@
 </div>
 
 <%= simple_form_for [@challenge, @invite] do |f| %>
-  <%# <%= f.input :invitee, collection: User.where.not(id: @challenge.users.select(:id)).map(&:nickname) %>
   <%= f.input :invitee_id,
               collection: User.where.not(id: @challenge.users.select(:id)).map { |user| [user.nickname, user.id] },
               label_method: :first, value_method: :second, label: 'Invitee' %>

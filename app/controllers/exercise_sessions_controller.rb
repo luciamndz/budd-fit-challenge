@@ -11,10 +11,10 @@ class ExerciseSessionsController < ApplicationController
   end
 
   def create
-    @exercise_sessions = ExerciseSessions.new(params_exercise_sessions)
-    @exercise_sessions.challenge_info.user = current_user
-    if @exercise_sessions.save!
-      redirect_to challenge_path(@exercise_sessions.challenge_info.challenge)
+    @exercise_session = ExerciseSessions.new(params_exercise_sessions)
+    @exercise_session.challenge_info.user = current_user
+    if @exercise_session.save!
+      redirect_to challenge_path(@exercise_session.challenge_info.challenge)
     else
       render new:, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class ExerciseSessionsController < ApplicationController
   def update
     authorize @exercise_session
     @exercise_session.save!
-    redirecto_to challenge_path(@exercise_sessions.challenge_info.challenge)
+    redirecto_to challenge_path(@exercise_session.challenge_info.challenge)
   end
 
   def destroy
