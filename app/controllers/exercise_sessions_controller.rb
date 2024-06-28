@@ -16,7 +16,7 @@ class ExerciseSessionsController < ApplicationController
     @challenge_info = ChallengeInfo.find(params[:challenge_info_id])
     @exercise_session.challenge_info = @challenge_info
     if @exercise_session.save!
-      redirect_to challenge_path(@exercise_session.challenge_info.challenge)
+      redirect_to @exercise_session
     else
       render new:, status: :unprocessable_entity
     end
@@ -24,19 +24,21 @@ class ExerciseSessionsController < ApplicationController
   end
 
   def show
-    skip_authorization
-    @exercise_comments = ExerciseComment.new
+    @challenge_info = ExerciseSession.find(params[:id])
+    @exercise_comment = ExerciseComment.new
+    authorize @exercise_session
   end
 
   def edit
     @exercise_session = ExerciseSession.new
+    authorize @exercise_session
   end
 
   def update
     authorize @exercise_session
     @exercise_session.save!
-    redirecto_to challenge_path(@exercise_session.challenge_info.challenge)
-    redirecto_to challenge_path(@exercise_session.challenge_info.challenge)
+    redirect_to challenge_path(@exercise_session.challenge_info.challenge)
+    redirect_to challenge_path(@exercise_session.challenge_info.challenge)
   end
 
   def destroy

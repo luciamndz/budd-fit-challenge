@@ -1,16 +1,16 @@
 <div class="container p-4 d-flex justify-content-center">
   <div class="shadow-lg border border-light">
     <div class="m-3">
-      <h1>Create your exercise session!</h1>
+      <h1>Add your evidence</h1>
       <%= simple_form_for [@challenge_info, @exercise_session] do |f| %>
-        <%= f.input :activity, label: "Activity", placeholder: "Enter activity" %>
+        <%= f.input :activity, collection: Challenge::ACTIVITIES, prompt: "Select an activity" %>
         <%= f.input :time_length, label: "Time Length (minutes)", placeholder: "Enter time length" %>
         <%= f.input :description, label: "Description", placeholder: "Enter description" %>
         <%= f.input :photo, as: :file, label: "Photo", required: true %>
         <% if @exercise_session.errors.has_key?(:photo) %>
           <p class="text-danger"><%= @exercise_session.errors[:photo].first %></p>
         <% end %>
-        <%= f.button :submit, "Create Exercise Session", class: "btn btn-primary" %>
+        <%= f.button :submit, "Create your post evidence", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
