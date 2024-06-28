@@ -28,14 +28,18 @@ Challenge.create!(
   challenge_type: "Public",
   activity: "Open",
   status: "created",
-  user_id: 1
+  user_id: 1,
+  start_date: "2024-08-15",
+  end_date: "2024-09-15"
 )
 Challenge.create!(
   name: "ANOTHER CHALLENGE",
   challenge_type: "Private",
   activity: "Open",
   status: "created",
-  user_id: 1
+  user_id: 1,
+  start_date: "2024-09-22",
+  end_date: "2024-10-15"
 )
 
 # require "open-uri"

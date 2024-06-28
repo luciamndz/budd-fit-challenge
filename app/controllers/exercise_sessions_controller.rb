@@ -23,6 +23,7 @@ class ExerciseSessionsController < ApplicationController
 
   def show
     skip_authorization
+    @exercise_comments = ExerciseComment.new
   end
 
   def edit
