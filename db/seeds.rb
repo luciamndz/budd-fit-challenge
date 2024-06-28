@@ -66,6 +66,15 @@ Challenge.create!(
   challenge_type: "Private",
   activity: "Open",
   status: "created",
+  start_date: "2024-07-10",
+  end_date: "2024-08-20",
+  user_id: 1
+)
+Challenge.create!(
+  name: "BATCH 1686 FIT CHALLENGE",
+  challenge_type: "Private",
+  activity: "Open",
+  status: "created",
   user_id: 1,
   start_date: "2024-09-22",
   end_date: "2024-10-15"
