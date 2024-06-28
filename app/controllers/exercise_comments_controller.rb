@@ -1,6 +1,6 @@
 class ExerciseCommentsController < ApplicationController
   # before_action :find_comment, only: [:edit, :update, :destroy]
-  before_action :set_exercise_session, only: [:new, :create]
+  before_action :set_exercise_session, only: [:new, :create,:edit,:update]
 
   def new
 
@@ -22,14 +22,20 @@ class ExerciseCommentsController < ApplicationController
 
   def edit
     @exercise_comment = ExerciseComment.new
+    authorize @exercise_comment
   end
 
   def update
     @exercise_comment = ExerciseComment.find(params_comments)
+    @exercise_comment.update!(params_comments)
+    redirect_to exercise_session_path(@exercise_session)
+    authorize @exercise_comment
   end
 
   def destroy
-    @exercise_comment.destroy
+    @exercise_comment = ExerciseComment.new(params[:id])
+    @exercise_comment.destroy!
+    authorize @exercise_comment
   end
 
   private

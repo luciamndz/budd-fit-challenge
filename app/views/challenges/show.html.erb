@@ -1,6 +1,6 @@
 <div class="container">
 
-<%= render "card" %>
+  <%= render "card" %>
 
 <%= link_to  %>
 <%= button_to "Delete Challenge", @challenge, class: "btn btn-outline-danger", method: :delete if policy(@challenge).destroy? %>
@@ -11,7 +11,6 @@
   <div class="d-flex p-3" >
     <% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
       <%= render "avatars" %>
-      
     <% end %>
   </div>
 </div>

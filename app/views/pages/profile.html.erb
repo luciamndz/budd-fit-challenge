@@ -1,18 +1,29 @@
-<h1>My profile</h1>
+<div class="container-fluid shadow">
 
-<% @invites.each do |invite| %>
-  <p><%= "From: #{invite.inviter.nickname}" %></p>
-  <p><%= "To: #{current_user.nickname}" %></p>
-  <p><%= "Join my challenge: #{invite.challenge.name}" %></p>
+  <h1>My profile</h1>
 
-  <%= simple_form_for invite, url: invite_path(invite) do |f| %>
-    <%= f.hidden_field :status, value: "Accepted" %>
-    <%= f.submit value:"Accept", class: "btn btn-primary" %>
+  <h2><%= current_user.nickname %></h2>
+  <h3>My challenges :</h3>
+  <ul>
+  <% current_user.challenges.each do |challenge| %>
+    <li><%= challenge.name %></li>
   <% end %>
-  <%= simple_form_for invite, url: invite_path(invite) do |f| %>
-    <%= f.hidden_field :status, value: "Declined" %>
-    <%= f.submit value:"Decline", class: "btn btn-primary" %>
+  </ul>
+  <h3>You have <%= @invites.count %> invites pending: </h3>
+  <% @invites.each do |invite| %>
+    <p><%= "From: #{invite.inviter.nickname}" %></p>
+    <p><%= "To: #{current_user.nickname}" %></p>
+    <p><%= "Join my challenge: #{invite.challenge.name}" %></p>
+
+    <%= simple_form_for invite, url: invite_path(invite) do |f| %>
+      <%= f.hidden_field :status, value: "Accepted" %>
+      <%= f.submit value:"Accept", class: "btn btn-primary" %>
+    <% end %>
+    <%= simple_form_for invite, url: invite_path(invite) do |f| %>
+      <%= f.hidden_field :status, value: "Declined" %>
+      <%= f.submit value:"Decline", class: "btn btn-primary" %>
+    <% end %>
   <% end %>
-<% end %>
 <% console %>
+</div>
 <%# pendiente colocar botones par aceptar / delcinar invitacion %>
