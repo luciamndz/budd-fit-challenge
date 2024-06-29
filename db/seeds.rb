@@ -15,10 +15,10 @@ users = [
   {email: "lucia@gmail.com", password: "123456", nickname: "luciamndzm", url: "https://avatars.githubusercontent.com/u/168779994?v=4"},
   {email: "xtremo@gmail.com", password: "123456", nickname: "tomasxtrmo", url: "https://avatars.githubusercontent.com/u/169010849?v=4"},
   {email: "magikmaikk@gmail.com", password: "123456", nickname: "maikmagikk", url: "https://avatars.githubusercontent.com/u/166572500?v=4"},
-  {email: "camilo@gmail.com", password: "123456", nickname: "camilost", url: "https://media.istockphoto.com/id/1477080051/es/foto/hombre-emprendedor-y-rostro-%C3%A9xito-en-el-lugar-de-trabajo-y-mentalidad-profesional-en-startup.webp?b=1&s=170667a&w=0&k=20&c=eM0TmKWGaJHlZEPplhrsgGM593-3CEa6G3huuyzw1k8="},
-  {email: "sofia@gmail.com", password: "123456", nickname: "sofb", url: "https://media.istockphoto.com/id/1305462732/es/foto/retrato-de-estudio-de-una-mujer-de-perfil-mirando-a-la-c%C3%A1mara.webp?b=1&s=170667a&w=0&k=20&c=9yoA0XAwPUk9Jg1u0xQYd4VH-H8jQV3ZcikTvq6-k5k="},
-  {email: "enrique@gmail.com", password: "123456", nickname: "enriquemtz", url: "https://img.freepik.com/fotos-premium/vista-frontal-hombre-sonriente-posando-brazos-cruzados_23-2148946155.jpg"},
-  {email: "ceci@gmail.com", password: "123456", nickname: "cecigalv", url: "https://media.istockphoto.com/id/1311084168/es/foto/mujer-asi%C3%A1tica-bastante-contenta-mira-a-la-c%C3%A1mara-con-risas-sinceras.webp?b=1&s=170667a&w=0&k=20&c=WHXWErWBkbPM-IPtPHMFd0ZQg1UYAIHZfEmx1zUcIPU="}
+  {email: "camilo@gmail.com", password: "123456", nickname: "camilost", url: "https://media.istockphoto.com/id/1690733685/es/v%C3%ADdeo/retrato-de-cabeza-feliz-hombre-hispano-guapo.jpg?s=640x640&k=20&c=3V2ex2y88SRJAqm01O0oiwfb0M4uTeaDS8PEDvN95Kw="},
+  {email: "sofia@gmail.com", password: "123456", nickname: "sofb", url: "https://media.istockphoto.com/id/508182206/es/foto/acercamiento-de-un-sonriente-joven-mujer-negra.jpg?s=612x612&w=0&k=20&c=Ih-UCCiq5J6nNYs-h5doWbogSJD3OdKGQz-iHemLxFE="},
+  {email: "enrique@gmail.com", password: "123456", nickname: "enriquemtz", url: "https://us.123rf.com/450wm/lightfieldstudios/lightfieldstudios2006/lightfieldstudios200602210/148972259-hombre-guapo-sonriendo-mientras-mira-a-la-c%C3%A1mara-aislada-en-gris.jpg?ver=6"},
+  {email: "ceci@gmail.com", password: "123456", nickname: "cecigalv", url: "https://st2.depositphotos.com/1007712/11394/i/450/depositphotos_113940510-stock-photo-portrait-of-happy-woman.jpg"}
 ]
 
 users.each do |user|
@@ -149,16 +149,6 @@ ChallengeInfo.create!(
   user_id: 7,
   challenge_id: 4,
   user_status: "active"
-)
-
-puts "Creating exercise sesions for BUDDIES CHALLENGE"
-
-exercise = ExerciseSession.create!(
-  activity: "Swimming",
-  time_length: 1,
-  description: "test",
-  like: 1,
-  challenge_info_id: 1
 )
 
 puts "Creating exercise sesions for BATCH 1686 FIT CHALLENGE"
