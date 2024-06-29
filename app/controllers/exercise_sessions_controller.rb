@@ -31,16 +31,25 @@ class ExerciseSessionsController < ApplicationController
   end
 
   def edit
-    @exercise_session = ExerciseSession.new
+    @exercise_session = ExerciseSession.find(params[:id])
+    #@exercise_session = ExerciseSession.new
     authorize @exercise_session
   end
 
   def update
+    #authorize @exercise_session
+    #@exercise_session.save!
+    #redirect_to challenge_path(@exercise_session.challenge_info.challenge)
+    #redirect_to challenge_path(@exercise_session.challenge_info.challenge)
     authorize @exercise_session
-    @exercise_session.save!
-    redirect_to challenge_path(@exercise_session.challenge_info.challenge)
-    redirect_to challenge_path(@exercise_session.challenge_info.challenge)
+    if @exercise_session.update(params_exercise_sessions)
+      redirect_to challenge_path(@exercise_session.challenge_info), notice: 'Exercise session was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
+
+  #redirect_to challenge_info_exercise_session_path(@challenge_info, @exercise_session), notice: 'Exercise session was successfully updated.'
 
   def destroy
     @exercise_session.destroy!
