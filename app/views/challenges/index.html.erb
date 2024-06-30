@@ -1,5 +1,10 @@
-<% @challenges.each do |challenge| %>
-  <ul>
-    <li><%= challenge.name %></li>
-  </ul>
-<% end %>
+<div>
+  <div class="container">
+    <h1>All your challenges!</h1>
+    <%= link_to "Create a challenge", new_challenge_path, class:"btn btn-outline-secondary"%>
+    <div data-controller="search-challenges">
+      <%= render "shared/search" %>
+      <%= render "shared/list", challenges: @challenge %>
+    </div>
+  </div>
+</div>
