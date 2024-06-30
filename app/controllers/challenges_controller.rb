@@ -4,7 +4,19 @@ class ChallengesController < ApplicationController
   before_action :set_admin, only: [:show]
 
   def index
-    @challenges = Challenge.all
+    @challenges = policy_scope(Challenge)
+    
+    if params[:query].present?
+      @challenges = Challenge.search_by_name_and_activity(params[:query])
+    else
+      @challenges = Challenge.all
+    end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: "shared/list", locals: {challenges: @challenges}, formats: [:html]}
+    end
+
   end
 
   def show;
