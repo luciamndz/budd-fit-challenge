@@ -1,9 +1,31 @@
-<div class="card" style="width: 30rem;">
-  <img src="" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><%= challenge.name %></h5>
-    <h6 class="card-text"><%= challenge.activity %></h6>
-    <h6 class="card-text"><%= challenge.start_date %></h6>
-    <%= link_to "Check Challenge", challenge_path(challenge), class:"btn btn-outline-secondary"%>
-  </div>
+<div class="card-product">
+  <img src="https://i.pinimg.com/564x/63/ae/d8/63aed8ae9387568fe75ca014b09e72fe.jpg" />
+  <div class="card-product-infos">
+    <div class="name">
+      <h2><%= challenge.name %></h2>
+    </div>
+    <div class="info">
+      <div class="attributes">
+        <h3><%= challenge.activity %></h3>
+        <h3><%= challenge.status %></h3>
+      </div>
+      <div class="duration">
+      <% final = challenge.end_date.split("-").map(&:to_i) %>
+    <% start = challenge.start_date.split("-").map(&:to_i) %>
+    <% duration = (Date.new(final[0],final[1],final[2])-Date.new(start[0],start[1],start[2])).to_i %>
+        <h2 id="number"><%= duration %></h2>
+        <p>days</p>
+      </div>
+    </div>
+    <div id="days">
+      <div class="dates">
+        <p>Starts</p>
+        <p><%= challenge.start_date %></p>
+      </div>
+      <div class="dates">
+        <p>Ends</p>
+        <p><%= challenge.end_date %></p>
+      </div>
+    </div>
+</div>
 </div>
