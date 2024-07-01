@@ -1,12 +1,21 @@
 .navbar-lewagon {
-  justify-content: space-between;
+  // justify-content: space-between;
   background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.brand {
+  font-family: 'Inter';
+  font-weight: bold;
+  font-size: 24px;
+  color: #D8C70E;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.container-brand {
+  justify-content: center;
+}
+
+.nav-item {
+  font-family: 'Inter';
+  font-weight: light;
+  font-size: 16px;
 }
