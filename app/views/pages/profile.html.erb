@@ -1,29 +1,32 @@
-<div class="container-fluid shadow">
-
-  <h1>My profile</h1>
-
+<div class="container-fluid shadow p-5">
+  <h1>My Profile</h1>
   <h2><%= current_user.nickname %></h2>
-  <h3>My challenges :</h3>
-  <ul>
-  <% current_user.challenges.each do |challenge| %>
-    <li><%= challenge.name %></li>
+  <h3>You have <%= @invites.count %> invites </h3>
+  <% if @invites.count.positive? %>
+  <div class="card-invite mb-3">
+    <div class="card-body">
+      <% @invites.each do |invite| %>
+        <div class="mb-4 d-flex align-items-center justify-content-between">
+          <p class="card-text mb-0">
+            <%= "#{invite.inviter.nickname} has invited you to #{invite.challenge.name} Challenge" %>
+          </p>
+          <div>
+            <div style="display: inline-block;">
+              <%= simple_form_for invite, url: invite_path(invite) do |f| %>
+                <%= f.hidden_field :status, value: "Accepted" %>
+                <%= f.submit "Accept", class: "btn btn-primary btn-sm" %>
+              <% end %>
+            </div>
+            <div style="display: inline-block;">
+              <%= simple_form_for invite, url: invite_path(invite) do |f| %>
+                <%= f.hidden_field :status, value: "Declined" %>
+                <%= f.submit "Decline", class: "btn btn-danger btn-sm" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <% end %>
-  </ul>
-  <h3>You have <%= @invites.count %> invites pending: </h3>
-  <% @invites.each do |invite| %>
-    <p><%= "From: #{invite.inviter.nickname}" %></p>
-    <p><%= "To: #{current_user.nickname}" %></p>
-    <p><%= "Join my challenge: #{invite.challenge.name}" %></p>
-
-    <%= simple_form_for invite, url: invite_path(invite) do |f| %>
-      <%= f.hidden_field :status, value: "Accepted" %>
-      <%= f.submit value:"Accept", class: "btn btn-primary" %>
-    <% end %>
-    <%= simple_form_for invite, url: invite_path(invite) do |f| %>
-      <%= f.hidden_field :status, value: "Declined" %>
-      <%= f.submit value:"Decline", class: "btn btn-primary" %>
-    <% end %>
-  <% end %>
-<% console %>
 </div>
-<%# pendiente colocar botones par aceptar / delcinar invitacion %>
