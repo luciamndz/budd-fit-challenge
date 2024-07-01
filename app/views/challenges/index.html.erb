@@ -1,12 +1,18 @@
 <div>
-  <%= render "index-card" %>
-  <%= render "evidence" %>
-  <div class="container">
-    <h1>All your challenges!</h1>
-    <%= link_to "Create a challenge", new_challenge_path, class:"btn btn-outline-secondary"%>
-    <div data-controller="search-challenges">
-      <%= render "shared/search" %>
-      <%= render "shared/list", challenges: @challenge %>
+  <div class="container" >
+    <div data-controller="search-challenges" id="challenge-index" style="background-color: red;">
+      <h1>Challenges</h1>
+      <%= render "shared/list", challenges: @challenge%>
+      <div id="search">
+      <%= render "shared/search"%>
+      <%= render "challenge-card"%>
+      </div>
+    </div>
+    <div id="evidence-rand">
+    <h2>Buddies in action</h2>
+    <% 10.times do  %>
+      <%= render "evidence" %>
+        <% end %>
     </div>
   </div>
 </div>

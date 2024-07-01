@@ -1,0 +1,12 @@
+#challenge-index {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+#challenge-index h1 {
+  position: absolute;
+  transform: rotate(-90deg);
+  left: 350px;
+  top: 250px;
+  font-size: 100px;
+}
