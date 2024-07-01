@@ -1,33 +1,22 @@
 .card-invite {
-  background-color: rgba(41, 41, 39, 0.8);  /* Color de fondo con transparencia */
-  border: 1px solid #dee2e6;  /* Borde delgado */
-  border-radius: 16px;  /* Bordes redondeados */
-  max-width: 800px;  /* Ancho máximo de 600px */
-  margin: 0 auto;  /* Centrado horizontalmente */
-  opacity: 0.9;  /* Opacidad del elemento */
-  padding: 20px;  /* Relleno interno */
+  background-color: rgba(41, 41, 39, 0.8);
+  border: 1px solid #dee2e6;
+  border-radius: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.9;
+  padding: 20px;
 }
 
 .card-invite p {
-  color: #ffffff;  /* Color de texto blanco */
-  font-size: 16px;  /* Tamaño de fuente */
-  margin-bottom: 0;  /* Eliminar margen inferior */
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 0;
 }
 
 .card-invite .form-control {
-  background-color: #ffffff;  /* Color de fondo del input */
-  border-color: #ced4da;  /* Color del borde del input */
-  color: #495057;  /* Color de texto del input */
-  padding: 10px;  /* Relleno interno del input */
-  margin-bottom: 10px;  /* Margen inferior del input */
-}
-
-.card-invite .btn-primary,
-.card-invite .btn-danger {
-  margin-left: 10px;  /* Espacio entre botones */
-}
-
-.card-invite .btn-primary:hover,
-.card-invite .btn-danger:hover {
-  opacity: 0.8;  /* Opacidad al pasar el mouse sobre los botones */
+  background-color: #ffffff;
+  border-color: #ced4da;
+  color: #495057;
+  padding: 10px;
 }

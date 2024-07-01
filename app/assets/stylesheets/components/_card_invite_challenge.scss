@@ -1,33 +1,23 @@
 .card-custom {
-  background-color: rgba(41, 41, 39, 0.8); /* Color de fondo con opacidad */
-  border: 1px solid #dee2e6; /* Borde delgado */
-  border-radius: 16px; /* Bordes redondeados */
-  max-width: 600px; /* Ancho máximo */
-  margin: 0 auto; /* Centrado horizontalmente */
-  padding: 20px; /* Relleno interno */
-  opacity: 0.8; /* Opacidad del elemento */
-  color: #ffffff; /* Color de texto blanco */
+  background-color: rgba(41, 41, 39, 0.8);
+  border: 1px solid #dee2e6;
+  border-radius: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  opacity: 0.8;
+  color: #ffffff;
 }
 
 .card-custom p {
-  font-size: 16px; /* Tamaño de fuente */
-  line-height: 1.5; /* Altura de línea */
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .card-custom .form-control {
-  background-color: #ffffff; /* Color de fondo del input */
-  border-color: #ced4da; /* Color del borde del input */
-  color: #495057; /* Color de texto del input */
-  padding: 10px; /* Relleno interno del input */
-  margin-bottom: 10px; /* Margen inferior del input */
-}
-
-.card-custom .btn-primary,
-.card-custom .btn-danger {
-  margin-top: 10px; /* Espacio arriba de los botones */
-}
-
-.card-custom .btn-primary:hover,
-.card-custom .btn-danger:hover {
-  opacity: 0.8; /* Opacidad al pasar el mouse sobre los botones */
+  background-color: #ffffff;
+  border-color: #ced4da;
+  color: #495057;
+  padding: 6px;
+  margin-bottom: 10px;
 }
