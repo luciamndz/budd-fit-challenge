@@ -8,7 +8,7 @@
         <%= f.input :description, label: "Description", placeholder: "Enter description" %>
         <%= f.input :photo, as: :file, label: "Photo", required: true %>
         <% if @exercise_session.errors.has_key?(:photo) %>
-          <p class="text-danger"><%= @exercise_session.errors[:photo].first %></p>
+        <p class="text-danger"><%= @exercise_session.errors[:photo].first %></p>
         <% end %>
         <%= f.button :submit, "Create your post evidence", class: "btn btn-primary" %>
       <% end %>
