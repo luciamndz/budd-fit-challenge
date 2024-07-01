@@ -1,29 +1,44 @@
-<div class="container-fluid shadow">
+<div class="container-fluid shadow p-5">
 
-  <h1>My profile</h1>
+  <h1>My Profile</h1>
 
   <h2><%= current_user.nickname %></h2>
-  <h3>My challenges :</h3>
-  <ul>
-  <% current_user.challenges.each do |challenge| %>
-    <li><%= challenge.name %></li>
-  <% end %>
-  </ul>
-  <h3>You have <%= @invites.count %> invites pending: </h3>
-  <% @invites.each do |invite| %>
-    <p><%= "From: #{invite.inviter.nickname}" %></p>
-    <p><%= "To: #{current_user.nickname}" %></p>
-    <p><%= "Join my challenge: #{invite.challenge.name}" %></p>
 
-    <%= simple_form_for invite, url: invite_path(invite) do |f| %>
-      <%= f.hidden_field :status, value: "Accepted" %>
-      <%= f.submit value:"Accept", class: "btn btn-primary" %>
+  <h3>My Challenges:</h3>
+  <ul>
+    <% current_user.challenges.each do |challenge| %>
+      <li><%= challenge.name %></li>
     <% end %>
-    <%= simple_form_for invite, url: invite_path(invite) do |f| %>
-      <%= f.hidden_field :status, value: "Declined" %>
-      <%= f.submit value:"Decline", class: "btn btn-primary" %>
-    <% end %>
-  <% end %>
-<% console %>
+  </ul>
+
+  <h3>You have <%= @invites.count %> invites pending:</h3>
+
+  <div class="card-invite mb-3">
+    <div class="card-body">
+      <% @invites.each do |invite| %>
+        <div class="mb-3">
+          <h5 class="card-title">From: <%= invite.inviter.nickname %></h5>
+          <p class="card-text">To: <%= current_user.nickname %></p>
+          <p class="card-text">Join my challenge: <%= invite.challenge.name %></p>
+
+          <div class="d-flex justify-content-end"> <!-- Alineación a la derecha usando flexbox -->
+            <%= simple_form_for invite, url: invite_path(invite), html: { class: "d-inline-block mr-2" } do |f| %>
+              <%= f.hidden_field :status, value: "Accepted" %>
+              <%= f.submit "Accept", class: "btn btn-primary btn-sm" %>
+            <% end %>
+
+            <%= simple_form_for invite, url: invite_path(invite), html: { class: "d-inline-block" } do |f| %>
+              <%= f.hidden_field :status, value: "Declined" %>
+              <%= f.submit "Decline", class: "btn btn-danger btn-sm" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>
+
+
+
 <%# pendiente colocar botones par aceptar / delcinar invitacion %>

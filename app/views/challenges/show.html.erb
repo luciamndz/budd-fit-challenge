@@ -27,10 +27,29 @@
 
   <%= link_to "Add evidence", new_challenge_info_exercise_session_path(@challenge), class:"btn btn-outline-secondary"%>
 
-  <%= simple_form_for [@challenge, @invite] do |f| %>
-    <%= f.input :invitee_id,
-                collection: User.where.not(id: @challenge.users.select(:id)).map { |user| [user.nickname, user.id] },
-                label_method: :first, value_method: :second, label: 'Invitee' %>
-    <%= f.submit %>
-  <% end %>
+  <div class="card card-invite">
+  <div class="card-body">
+    <p>Exercising with your friends has never been so fun! Invite them to be part of the next challenge.</p>
+
+    <%= simple_form_for [@challenge, @invite], html: { class: 'form-inline' } do |f| %>
+      <div class="row">
+        <div class="col-md-8 mb-3 mb-md-0">
+          <%= f.input :invitee_id,
+                      collection: User.where.not(id: @challenge.users.select(:id)).map { |user| [user.nickname, user.id] },
+                      label: false,
+                      include_blank: 'Select a buddy',
+                      input_html: { class: 'form-control' } %>
+        </div>
+        <div class="col-md-4">
+          <%= f.button :submit, "Invite your buddy", class: 'btn btn-primary btn-block' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
 </div>
