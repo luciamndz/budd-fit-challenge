@@ -1,3 +1,23 @@
+#evidence-rand {
+  position: relative;
+  display: flex;
+  margin-top: 50px;
+}
+
+#evidence-rand h1 {
+  background-color: blue;
+  left: 0;
+  top: 0;
+}
+
+#evidence-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  background-color: red;
+}
+
 .card-trip {
   width: 210px;
   overflow: hidden;
@@ -5,6 +25,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 20px;
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .card-trip > img {
