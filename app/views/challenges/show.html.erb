@@ -1,6 +1,6 @@
 <div class="container">
   <%= render "card" %>
-
+  <% console %>
   <div class="row">
     <h2>Challenge's Buddies</h2>
     <div class="d-flex p-3" >
@@ -21,6 +21,7 @@
     <% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
     <ul>
       <li><%= challenge_info.user.nickname%> Score: <%= challenge_info.user_score %></li>
+      <%= @challenge_info %>
     </ul>
     <% end %>
   </div>

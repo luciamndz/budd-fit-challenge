@@ -10,4 +10,8 @@ class User < ApplicationRecord
   has_many :challenges, through: :challenge_infos
   has_one_attached :photo
   has_many :comments, dependent: :destroy
+
+  def challenge_info_for(challenge)
+    challenge_infos.find_or_create_by(challenge: challenge)
+  end
 end

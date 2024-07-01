@@ -5,7 +5,7 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = policy_scope(Challenge)
-    
+
     if params[:query].present?
       @challenges = Challenge.search_by_name_and_activity(params[:query])
     else
@@ -34,6 +34,7 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(params_challenge)
     @challenge.user = current_user
     if @challenge.save!
+      ChallengeInfo.create!(user: current_user, challenge: @challenge)
       redirect_to challenge_path(@challenge)
     else
       render new:, status: :unprocessable_entity
@@ -66,7 +67,6 @@ class ChallengesController < ApplicationController
   def params_challenge
     params.require(:challenge).permit(:name, :duration, :challenge_type, :activity, :status, :global_score, :user_id, :start_date, :end_date)
   end
-
   def find_challenge
     @challenge = Challenge.find(params[:id])
   end
