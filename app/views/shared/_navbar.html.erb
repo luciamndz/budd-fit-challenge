@@ -1,39 +1,47 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://c1.klipartz.com/pngpicture/797/224/sticker-png-running-logo-sports-exercise-rabbit-line-text-hand-symbol.png" %>
+      <%= link_to "BUDD-FIT CHALLENGE", challenges_path, class: "nav-link brand" %>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link text-white" %>
           </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <% if current_user.photo.present? %>
-              <%= image_tag current_user.photo, class: "avatar", alt: "dropdown menu" %>
-            <% else %>
-              <%= image_tag "avatar.jpg", class: "avatar", alt: "dropdown menu" %>
-            <% end %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", profile_path , class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+          <li class="nav-item">
+            <%= link_to "Challenges", challenges_path, class: "nav-link text-white" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Profile", profile_path, class: "nav-link text-white" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link btn btn-warning" %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "btn btn-warning" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Register", new_user_registration_path, class: "btn btn-outline-light" %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
+
+
+
+
+
+
