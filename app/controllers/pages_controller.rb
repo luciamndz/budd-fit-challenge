@@ -16,6 +16,6 @@ class PagesController < ApplicationController
 
   def profile
     # @invites = Invite.where(invitee: current_user)
-    @invites = current_user.invites_as_invitee
+    @invites = current_user.invites_as_invitee.where.not(status: ["Declined", "Accepted"])
   end
 end
