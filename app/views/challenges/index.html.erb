@@ -1,25 +1,26 @@
 <div>
-  <div >
-    <div data-controller="search-challenges" id="challenge-index" >
+  <div>
+    <div data-controller="search-challenges" id="challenge-index">
       <h1>Challenges</h1>
-      <%= render "shared/list", challenges: @challenge%>
-      <%= render "challenge-card"%>
-      <img src="/app/assets/images/woman.png - woman-exercising-0024-large.png" alt="">
-      <div id="search">
-      <%= render "shared/search"%>
+      <%= render "shared/list", challenges: @challenge %>
+      <div id="search-and-create" class="d-flex flex-column">
+        <div id="search">
+          <%= render "shared/search" %>
+        </div>
+        <div id="create-card-container">
+          <%= render "challenge-card" %>
+        </div>
       </div>
     </div>
-
     <div id="evidence-rand" >
-    <div>
-      <h1>Buddies in action</h1>
-    </div>
-      <div id=evidence-display>
-        <% 14.times do  %>
+      <div>
+        <h1 style="height: auto;">Buddies in action</h1>
+      </div>
+      <div id="evidence-display">
+        <% 14.times do %>
           <%= render "evidence" %>
         <% end %>
       </div>
     </div>
-
   </div>
 </div>
