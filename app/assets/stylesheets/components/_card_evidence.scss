@@ -2,7 +2,43 @@
   background-color: rgba(71, 69, 44, 0.8);
   color: white;
   padding: 15px;
-  max-width: 645px;
-  margin: 0 auto;
+  width: 1120px;
+  height: 130px;
+  margin: 20px auto;
   border-radius: 16px;
+  position: relative;
+}
+.card-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+.card-title-yellow {
+  color: yellow;
+}
+.evidence-text2 {
+  position: absolute;
+  bottom: 5px;
+  left: 1000px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+.round-buton {
+  background-color: #D8C70E !important;
+  border-color: black !important;
+  font-weight: 500 !important;
+  border-radius: 50px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+  text-decoration: none;
+  color: black;
+  font-size: 60px;
+  position: absolute;
+  top: -25px;
+  right: -25px;
 }
