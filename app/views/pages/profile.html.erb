@@ -1,14 +1,19 @@
 <div class="container-fluid shadow p-5">
-  <h1>My Profile</h1>
-  <h2><%= current_user.nickname %></h2>
-  <h3>You have <%= @invites.count %> invites </h3>
+  <h1>@<%= current_user.nickname %></h1>
+  <%= image_tag current_user.photo, size: "500x500" %>
+  <div id="evidence-rand" >
+    <h1 style="height: auto;">My Profile</h1>
+  </div>
+  <% if @invites.count > 0 %>
+    <h1 style="height: auto;">You have <%= @invites.count %> Invites </h3>
+  <% end %>
   <% if @invites.count.positive? %>
   <div class="card-invite">
     <div class="card-body">
       <% @invites.each do |invite| %>
         <div class="my-3 d-flex align-items-center justify-content-between">
           <p class="card-text">
-            <%= "#{invite.inviter.nickname} has invited you to #{invite.challenge.name} Challenge" %>
+            @<%= "#{invite.inviter.nickname} has invited you to #{invite.challenge.name} Challenge" %>
           </p>
           <div>
             <div style="display: inline-block;">
