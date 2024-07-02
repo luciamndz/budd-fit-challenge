@@ -43,18 +43,9 @@ class ChallengeInfosController < ApplicationController
 
   private
   def find_challenge_info
-    @challenge_info.exercise_session =
     @challenge_info = ChallengeInfo.find(params[:id])
   end
-
-  # def set_score
-  #   @exercise_session = ExerciseSession.find(params[:exercise_session_id])
-  #   @challenge_info.user_score = 0
-  #   # @challenge_info.user_score = @challenge_info.exercise_sessions.
-  #   if @exercise_session.save!
-  #     @challenge_info.user_score += 1
-  #   end
-  # end
+  
   def params_challenge_info
     params.require(:challenge_info).permit(:user_id, :challenge_id, :user_score, :user_status, :attendance)
   end
