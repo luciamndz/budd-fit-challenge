@@ -2,19 +2,26 @@
   position: relative;
   display: flex;
   margin-top: 50px;
+  background-color: green
+
 }
 
 #evidence-rand h1 {
   background-color: blue;
-  left: 0;
-  top: 0;
+  writing-mode: vertical-rl;
+  transform:rotate(180deg) ;
+  margin-left: 100px;
+margin-right: 80px;
+  font-size: 100px;
 }
 
 #evidence-display {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  width: 2000px;
 
+  left: 400px;
   background-color: red;
 }
 
