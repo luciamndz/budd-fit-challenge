@@ -1,12 +1,10 @@
 <div class="container-fluid shadow p-5">
   <h1>@<%= current_user.nickname %></h1>
-  <%= image_tag current_user.photo, size: "500x500" %>
+  <%= image_tag current_user.photo, size: "500x500", style: "border-radius: 50%; width: 400px; height: 400px;" %>
   <div id="evidence-rand" >
     <h1 style="height: auto;">My Profile</h1>
   </div>
-  <% if @invites.count > 0 %>
-    <h1 style="height: auto;">You have <%= @invites.count %> Invites </h3>
-  <% end %>
+
   <% if @invites.count.positive? %>
   <div class="card-invite">
     <div class="card-body">
@@ -31,6 +29,12 @@
           </div>
         </div>
       <% end %>
+    </div>
+  </div>
+  <% else  %>
+  <div class="card-invite">
+    <div class="card-body">
+      <h1 class="text-center" style="height: auto;">You have <%= @invites.count %> Invites </h1>
     </div>
   </div>
   <% end %>

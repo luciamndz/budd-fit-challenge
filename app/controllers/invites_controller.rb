@@ -10,7 +10,7 @@ class InvitesController < ApplicationController
     @invite.challenge = @challenge
     @invite.inviter = current_user
     if @invite.save!
-      redirect_to challenge_path(@invite.challenge)
+      redirect_to challenge_path(@invite.challenge), notice: 'Invite was successfully created.'
     else
       render new:, status: :unprocessable_entity
     end
