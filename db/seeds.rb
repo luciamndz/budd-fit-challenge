@@ -39,15 +39,16 @@ Challenge.create!(
   start_date: "2024-07-01",
   end_date: "2024-08-15"
 )
-Challenge.create!(
-  name: "SURFERS CHALLENGE",
-  challenge_type: "Public",
-  activity: "Open",
-  status: "created",
-  start_date: "2024-07-01",
-  end_date: "2024-08-01",
-  user_id: 1
-)
+
+# Challenge.create!(
+#   name: "SURFERS CHALLENGE",
+#   challenge_type: "Public",
+#   activity: "Open",
+#   status: "created",
+#   start_date: "2024-07-01",
+#   end_date: "2024-08-01",
+#   user_id: 1
+# )
 
 Challenge.create!(
   name: "BATCH 1686 FIT CHALLENGE",
@@ -91,7 +92,7 @@ ChallengeInfo.create!(
   user_score: 0,
   attendance: false,
   user_id: 1,
-  challenge_id: 3,
+  challenge_id: 2,
   user_status: "active"
 )
 
@@ -99,7 +100,7 @@ ChallengeInfo.create!(
   user_score: 0,
   attendance: false,
   user_id: 2,
-  challenge_id: 3,
+  challenge_id: 2,
   user_status: "active"
 )
 
@@ -107,7 +108,7 @@ ChallengeInfo.create!(
   user_score: 0,
   attendance: false,
   user_id: 3,
-  challenge_id: 3,
+  challenge_id: 2,
   user_status: "active"
 )
 
@@ -115,7 +116,7 @@ ChallengeInfo.create!(
   user_score: 0,
   attendance: false,
   user_id: 4,
-  challenge_id: 3,
+  challenge_id: 2,
   user_status: "active"
 )
 
@@ -123,7 +124,7 @@ ChallengeInfo.create!(
   user_score: 0,
   attendance: false,
   user_id: 5,
-  challenge_id: 3,
+  challenge_id: 2,
   user_status: "active"
 )
 
@@ -131,7 +132,7 @@ ChallengeInfo.create!(
   user_score: 0,
   attendance: false,
   user_id: 6,
-  challenge_id: 3,
+  challenge_id: 2,
   user_status: "active"
 )
 
@@ -139,7 +140,7 @@ ChallengeInfo.create!(
   user_score: 0,
   attendance: false,
   user_id: 7,
-  challenge_id: 3,
+  challenge_id: 2,
   user_status: "active"
 )
 
