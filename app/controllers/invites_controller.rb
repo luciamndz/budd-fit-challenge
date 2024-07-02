@@ -27,7 +27,12 @@ class InvitesController < ApplicationController
     authorize @invite
     if @invite.update(invite_params.merge(status: "Accepted"))
       # Crear ChallengeInfo para el usuario invitado
-      ChallengeInfo.create!(user: current_user, challenge: @invite.challenge)
+      ChallengeInfo.create!(
+        user: current_user,
+        challenge: @invite.challenge,
+        user_status: 'active',
+        user_score: 0
+      )
       redirect_to challenge_path(@invite.challenge)
     else
       render "pages/profile", status: :unprocessable_entity

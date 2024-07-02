@@ -26,7 +26,7 @@
     <% end %>
   </div>
 
-  <%= link_to "Add evidence", new_challenge_info_exercise_session_path(@challenge), class:"btn btn-outline-secondary"%>
+  <%= link_to "Add evidence", new_challenge_info_exercise_session_path(@user_challenge_info), class:"btn btn-outline-secondary"%>
 
   <%= simple_form_for [@challenge, @invite] do |f| %>
     <%= f.input :invitee_id,

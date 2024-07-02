@@ -10,7 +10,11 @@ class ChallengeInfo < ApplicationRecord
   has_many :exercise_sessions, dependent: :destroy
 
   def increment_score
-    self.user_score += 1
-    save
+    if user_score == nil
+      user_score = 1
+    else
+      self.user_score += 1
+    end
+    save!
   end
 end

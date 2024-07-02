@@ -23,6 +23,8 @@ class ChallengesController < ApplicationController
     @invite = Invite.new
     authorize @challenge
     authorize @invite
+
+    @user_challenge_info = @challenge.challenge_infos.find_by(user: current_user)
   end
 
   def new
@@ -34,7 +36,10 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(params_challenge)
     @challenge.user = current_user
     if @challenge.save!
-      ChallengeInfo.create!(user: current_user, challenge: @challenge)
+      ChallengeInfo.create!(
+        user: current_user,
+        challenge: @challenge
+      )
       redirect_to challenge_path(@challenge)
     else
       render new:, status: :unprocessable_entity
