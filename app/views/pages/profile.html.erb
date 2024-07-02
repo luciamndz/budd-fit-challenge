@@ -3,24 +3,24 @@
   <h2><%= current_user.nickname %></h2>
   <h3>You have <%= @invites.count %> invites </h3>
   <% if @invites.count.positive? %>
-  <div class="card-invite mb-3">
+  <div class="card-invite">
     <div class="card-body">
       <% @invites.each do |invite| %>
-        <div class="mb-4 d-flex align-items-center justify-content-between">
-          <p class="card-text mb-0">
+        <div class="my-3 d-flex align-items-center justify-content-between">
+          <p class="card-text">
             <%= "#{invite.inviter.nickname} has invited you to #{invite.challenge.name} Challenge" %>
           </p>
           <div>
             <div style="display: inline-block;">
               <%= simple_form_for invite, url: invite_path(invite) do |f| %>
                 <%= f.hidden_field :status, value: "Accepted" %>
-                <%= f.submit "Accept", class: "btn btn-primary btn-sm" %>
+                <%= f.submit "Accept", class: "btn btn-outline-light" %>
               <% end %>
             </div>
             <div style="display: inline-block;">
               <%= simple_form_for invite, url: invite_path(invite) do |f| %>
                 <%= f.hidden_field :status, value: "Declined" %>
-                <%= f.submit "Decline", class: "btn btn-danger btn-sm" %>
+                <%= f.submit "Decline", class: "btn btn-warning" %>
               <% end %>
             </div>
           </div>
