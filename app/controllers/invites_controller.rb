@@ -22,15 +22,18 @@ class InvitesController < ApplicationController
   end
 
   def edit;end
-
   def update
     @invite = Invite.find(params[:id])
     authorize @invite
-    if @invite.update(invite_params)
-      case @invite.status
-      when "Accepted" then redirect_to challenge_path(@invite.challenge)
-      when "Declined" then redirect_to profile_path
-      end
+    if @invite.update(invite_params.merge(status: "Accepted"))
+      # Crear ChallengeInfo para el usuario invitado
+      ChallengeInfo.create!(
+        user: current_user,
+        challenge: @invite.challenge,
+        user_status: 'active',
+        user_score: 0
+      )
+      redirect_to challenge_path(@invite.challenge)
     else
       render "pages/profile", status: :unprocessable_entity
     end
@@ -39,5 +42,9 @@ class InvitesController < ApplicationController
   private
   def invite_params
     params.require(:invite).permit(:invitee_id, :status)
+  end
+
+  def params_challenge_info
+    params.require(:challenge_info).permit(:user_id, :challenge_id, :user_score, :user_status, :attendance)
   end
 end

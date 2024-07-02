@@ -1,6 +1,6 @@
 class ChallengeInfosController < ApplicationController
 
-  before_action :find_challenge_info, only: [:show, :set_score, :top, ]
+  before_action :find_challenge_info, only: [:show, :edit, :update]
   def new
     @challenge_info = ChallengeInfo.new
   end
@@ -14,7 +14,6 @@ class ChallengeInfosController < ApplicationController
     end
   end
   def update
-    @challenge_info = ChallengeInfo.find(params[:id])
     @challenge_info.user_status = "inactive"
     authorize @challenge_info
     @challenge_info.save!
@@ -49,14 +48,14 @@ class ChallengeInfosController < ApplicationController
     @challenge_info = ChallengeInfo.find(params[:id])
   end
 
-  def set_score
-    @exercise_session = ExerciseSession.find(params[:exercise_session_id])
-    @challenge_info.user_score = 0
-    # @challenge_info.user_score = @challenge_info.exercise_sessions.
-    if @exercise_session.save!
-      @challenge_info.user_score += 1
-    end
-  end
+  # def set_score
+  #   @exercise_session = ExerciseSession.find(params[:exercise_session_id])
+  #   @challenge_info.user_score = 0
+  #   # @challenge_info.user_score = @challenge_info.exercise_sessions.
+  #   if @exercise_session.save!
+  #     @challenge_info.user_score += 1
+  #   end
+  # end
   def params_challenge_info
     params.require(:challenge_info).permit(:user_id, :challenge_id, :user_score, :user_status, :attendance)
   end

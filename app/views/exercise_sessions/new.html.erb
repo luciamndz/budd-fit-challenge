@@ -2,7 +2,8 @@
   <div class="shadow-lg border border-light">
     <div class="m-3">
       <h1>Add your evidence</h1>
-      <%= simple_form_for [@challenge_info, @exercise_session] do |f| %>
+      <% console %>
+      <%= simple_form_for [@challenge_info, @exercise_session], url: challenge_info_exercise_sessions_path(@challenge_info) do |f| %>
         <%= f.input :activity, collection: Challenge::ACTIVITIES, prompt: "Select an activity" %>
         <%= f.input :time_length, label: "Time Length (minutes)", placeholder: "Enter time length" %>
         <%= f.input :description, label: "Description", placeholder: "Enter description" %>

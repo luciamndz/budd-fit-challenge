@@ -1,27 +1,26 @@
 class ExerciseSessionsController < ApplicationController
   before_action :find_exercise_session, only: [:show, :edit, :update, :destroy]
+  before_action :find_challenge_info, only: [:new, :create]
 
   def index
     @exercise_sessions = policy_scope(ExerciseSession)
   end
 
   def new
-    @challenge_info = ChallengeInfo.find(params[:challenge_info_id])
     @exercise_session = ExerciseSession.new
     authorize @exercise_session
   end
 
   def create
     @exercise_session = ExerciseSession.new(params_exercise_sessions)
-    @challenge_info = ChallengeInfo.find(params[:challenge_info_id])
-    @exercise_session.challenge_info = @challenge_info
-    @exercise_session.challenge_info.user = current_user
-    if @exercise_session.save!
-      redirect_to @exercise_session
-    else
-      render new:, status: :unprocessable_entity
-    end
     authorize @exercise_session
+    @exercise_session.challenge_info = @challenge_info
+    if @exercise_session.save!
+      @challenge_info.increment_score
+      redirect_to exercise_session_path(@exercise_session), notice: 'Exercise session was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -31,7 +30,6 @@ class ExerciseSessionsController < ApplicationController
   end
 
   def edit
-    @exercise_session = ExerciseSession.find(params[:id])
     #@exercise_session = ExerciseSession.new
     authorize @exercise_session
   end
@@ -63,16 +61,13 @@ class ExerciseSessionsController < ApplicationController
     params.require(:exercise_session).permit(:activity, :time_length, :evidence, :description, :like, :created_at, :challenge_info_id, :photo)
   end
 
+  def find_challenge_info
+    @challenge_info = ChallengeInfo.find(params[:challenge_info_id])
+    unless @challenge_info
+      redirect_to root_path, alert: "Challenge Info not found."
+    end
+  end
   def find_exercise_session
     @exercise_session = ExerciseSession.find(params[:id])
   end
-
-  def my_friends
-    #pendiente
-  end
-
-  def like
-    #pendiente
-  end
-
 end
