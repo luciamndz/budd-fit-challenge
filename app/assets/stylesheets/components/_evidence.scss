@@ -2,27 +2,21 @@
   position: relative;
   display: flex;
   margin-top: 50px;
-  background-color: green
-
 }
 
 #evidence-rand h1 {
-  background-color: blue;
+
   writing-mode: vertical-rl;
   transform:rotate(180deg) ;
   margin-left: 100px;
-margin-right: 80px;
+  margin-right: 80px;
   font-size: 100px;
 }
 
 #evidence-display {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   width: 2000px;
-
-  left: 400px;
-  background-color: red;
 }
 
 .card-trip {
@@ -32,7 +26,8 @@ margin-right: 80px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 20px;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 40px;
+  margin-right: 40px;
 }
 
 .card-trip > img {
