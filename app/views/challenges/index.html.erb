@@ -3,9 +3,10 @@
     <div data-controller="search-challenges" id="challenge-index" >
       <h1>Challenges</h1>
       <%= render "shared/list", challenges: @challenge%>
+      <%= render "challenge-card"%>
+      <img src="/app/assets/images/woman.png - woman-exercising-0024-large.png" alt="">
       <div id="search">
       <%= render "shared/search"%>
-      <%= render "challenge-card"%>
       </div>
     </div>
 

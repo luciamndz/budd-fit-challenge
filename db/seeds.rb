@@ -39,15 +39,16 @@ Challenge.create!(
   start_date: "2024-07-01",
   end_date: "2024-08-15"
 )
-#Challenge.create!(
-  #name: "SURFERS CHALLENGE",
-  #challenge_type: "Public",
-  #activity: "Open",
-  #status: "created",
-  #start_date: "2024-07-01",
-  #end_date: "2024-08-01",
-  #user_id: 1
-#)
+
+# Challenge.create!(
+#   name: "SURFERS CHALLENGE",
+#   challenge_type: "Public",
+#   activity: "Open",
+#   status: "created",
+#   start_date: "2024-07-01",
+#   end_date: "2024-08-01",
+#   user_id: 1
+# )
 
 Challenge.create!(
   name: "BATCH 1686 FIT CHALLENGE",

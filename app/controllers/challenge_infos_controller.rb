@@ -18,7 +18,6 @@ class ChallengeInfosController < ApplicationController
     authorize @challenge_info
     @challenge_info.save!
     redirect_to challenge_path(@challenge_info.challenge)
-    set_score
   end
 
   def edit;end
