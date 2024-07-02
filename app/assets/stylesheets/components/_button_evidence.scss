@@ -1,0 +1,19 @@
+.round-buton {
+  background-color: #D8C70E !important;
+  border-color: black !important;
+  font-weight: 500 !important;
+  border-radius: 50px; /* Utiliza un valor grande para hacer el botón redondo */
+  width: 20px; /* Ajusta el ancho y el alto según sea necesario */
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+  text-decoration: none;
+  color: black;
+}
+
+.btn-warning:hover {
+  background-color: #bdae0e !important;
+}
