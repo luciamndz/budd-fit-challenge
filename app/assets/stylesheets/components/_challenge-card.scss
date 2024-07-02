@@ -1,7 +1,7 @@
 .card-product {
   overflow: hidden;
-  width: 450px;
-  height: 180px;
+  width: 500px;
+  height: 200px;
   background-color: rgba(41,41,39,0.5);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
   display: flex;
@@ -10,6 +10,7 @@
   color: #D8C70E;
   margin-bottom: 15px;
   margin-left: 100px;
+  margin-top: 20px;
 }
 
 .card-product img {
