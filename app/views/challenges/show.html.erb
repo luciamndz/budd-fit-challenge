@@ -7,7 +7,7 @@
         <p><%= challenge_info.user.nickname%></p>
         <% if @challenge.user == current_user %>
           <%= simple_form_for challenge_info, url: challenge_info_path(challenge_info) do |f| %>
-            <%= f.submit value:"delete", class: "btn btn-primary" %>
+            <%= f.submit value:"destroy", class: "btn btn-primary" %>
           <% end %>
         <% end %>
         <div class="m-2"><%= cl_image_tag challenge_info.user.photo.key, class:"height: 50px avatar-large", id:"img-card"%></div>
