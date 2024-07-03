@@ -24,7 +24,7 @@
         <p>Ends</p>
         <p><%= @challenge.end_date %></p>
       </div>
-      <%= button_to "Delete Challenge", @challenge, class: "btn btn-outline-danger", method: :delete if policy(@challenge).destroy? %>
+      <%= button_to "Delete Challenge", @challenge, class: "btn btn-warning", method: :delete if policy(@challenge).destroy? %>
     </div>
   </div>
 </div>
