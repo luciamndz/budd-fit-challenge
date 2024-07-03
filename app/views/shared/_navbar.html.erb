@@ -1,11 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="row"></div>
   <div class="container-fluid">
+  <div class="col-4">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= link_to "BUDD-FIT CHALLENGE", challenges_path, class: "nav-link brand" %>
+      <%= link_to "BUDD-FIT CHALLENGE", challenges_path, class: "nav-link brand ps-3" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+  </div>
+  <div class="col-4">
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
@@ -21,6 +26,9 @@
         <% end %>
       </ul>
     </div>
+
+  </div>
+  <div class="col-4">
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
@@ -37,11 +45,7 @@
         <% end %>
       </ul>
     </div>
+
+  </div>
   </div>
 </div>
-
-
-
-
-
-
