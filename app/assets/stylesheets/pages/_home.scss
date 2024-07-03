@@ -1,9 +1,55 @@
 // Specific CSS for your home-page
-h1 {
-  margin: 10px;
-  color: rgb(65, 64, 59);
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 50px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+#homecontainer {
+  display: flex;
 }
 
+#app-title {
+  height: 65vh;
+}
+
+h1 {
+  margin: 10px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 100px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: bold;
+  font-family: "Inter";
+  max-width: 50%;
+}
+
+.image-div {
+  position: relative;
+  height: 70vh;
+  width: 70%;
+  z-index: 12;
+  border-bottom-left-radius: 30px;
+  box-shadow: 3px 3px 4px grey;
+  background-color: rgba(0,0,0,0.2);
+}
+.img-position {
+  position: absolute;
+  z-index: 10;
+  width: 15vw;
+  // padding-left: 100px;
+  top:50%;
+  right: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.image-div p {
+  padding: 20px;
+  color: white;
+}
+
+#text {
+  padding: 20px;
+  text-align: center;
+
+}
+
+#text p {
+
+  border-radius: 20px;
+}
