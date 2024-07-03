@@ -22,9 +22,19 @@
 }
 
 .background-section {
-  background-color: #E6FFCC;
+  background-color: #e6ffcc66;
   height: 500px;
   width: 300px;
-  opacity: 0.2;
+
   border-bottom-left-radius: 50px;
+  position: relative;
+}
+
+.background-section img {
+  position: absolute;
+  top: 200px;
+  left: -120px;
+  height: 250px;
+  width:250px;
+  border-radius: 30px;
 }

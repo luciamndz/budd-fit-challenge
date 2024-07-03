@@ -13,6 +13,7 @@
     </div>
     <div class="section-two">
       <div class="background-section">
+      <img src="<%= asset_path('Weightlifting.jpg') %>" alt="todays evidence" >
       </div>
     </div>
   </div>
@@ -53,7 +54,18 @@
     </div>
   </div>
 
-  <div class="display-daily-evidences">
-    <% render "challenge-evidence" %>
-  </div>
+  <div id="evidence-rand" >
+      <div>
+        <h1 style="height: auto;">Buddies Today</h1>
+      </div>
+      <div id="evidence-display">
+
+        <% @exercise_sessions.each do |session| %>
+          <%= render "challenge-evidence", session: session %>
+        <% end %>
+
+      </div>
+    </div>
+
+
 </div>
