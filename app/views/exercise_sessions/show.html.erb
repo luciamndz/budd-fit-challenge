@@ -10,7 +10,7 @@
       <p><strong>Description:</strong> <%= @challenge_info.description %></p>
       <% if @challenge_info.photo.attached? %>
         <p><strong>Photo:</strong></p>
-        <%= image_tag @challenge_info.photo %>
+        
       <% else %>
         <p class="text-danger">No photo available</p>
       <% end %>

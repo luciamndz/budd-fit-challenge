@@ -12,6 +12,7 @@ class ChallengesController < ApplicationController
       @challenges = Challenge.all
     end
 
+    @exercise_sessions = ExerciseSession.all.order("RANDOM()").take(14)
     respond_to do |format|
       format.html
       format.text { render partial: "shared/list", locals: {challenges: @challenges}, formats: [:html]}
@@ -24,6 +25,8 @@ class ChallengesController < ApplicationController
     authorize @challenge
     authorize @invite
 
+    @exercise_sessions = ExerciseSession.all
+    @challenge.exercise_sessions = @exercise_sessions
     @user_challenge_info = @challenge.challenge_infos.find_by(user: current_user)
   end
 

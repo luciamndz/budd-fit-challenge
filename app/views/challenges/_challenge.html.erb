@@ -1,8 +1,26 @@
 <div class="card-product">
-  <img src="https://i.pinimg.com/564x/63/ae/d8/63aed8ae9387568fe75ca014b09e72fe.jpg" />
+  <% if challenge.activity == "Barre"%>
+  <img src="<%= asset_path('Barre2.jpg') %>"  alt="women doing Barre pose">
+  <% elsif challenge.activity == "Boxing" %>
+  <img src="<%= asset_path('Boxing.jpg') %>"  alt="Woman jumping rope">
+  <% elsif challenge.activity == "Weight Lifting" %>
+  <img src="<%= asset_path('Weightlifting.jpg') %>"  alt="woman exercising">
+  <% elsif challenge.activity == "Pilates" %>
+  <img src="<%= asset_path('Pilates2.jpg') %>"  alt="woman exercising">
+  <% elsif challenge.activity == "Crossfit" %>
+  <img src="<%= asset_path('Crossfit.jpg') %>"  alt="woman exercising">
+  <% elsif challenge.activity == "Running" %>
+  <img src="<%= asset_path('Running.jpg') %>"  alt="woman exercising">
+  <% elsif challenge.activity == "Indoor Cycling" %>
+  <img src="<%= asset_path('Cycling.jpg') %>"  alt="woman exercising">
+  <% elsif challenge.activity == "Swimming" %>
+  <img src="<%= asset_path('Swimming2.jpg') %>"  alt="woman exercising">
+  <% elsif challenge.activity == "Open" %>
+  <img src="<%= asset_path('Open.jpg') %>"  alt="woman exercising">
+  <% end %>
   <div class="card-product-infos">
     <div class="name">
-      <h2><%= challenge.name %></h2>
+      <h2><%= challenge.name %> Challenge</h2>
     </div>
     <div class="info">
       <div class="attributes">
