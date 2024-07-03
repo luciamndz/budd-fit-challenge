@@ -40,7 +40,7 @@ class ExerciseCommentsController < ApplicationController
     # @exercise_comment.exercise_session = @exercise_session
     @exercise_comment = ExerciseComment.find(params[:id])
     @exercise_comment.destroy!
-    redirect_to root_path
+    #redirect_to root_path
     authorize @exercise_comment
   end
 
