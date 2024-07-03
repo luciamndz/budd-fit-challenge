@@ -2,7 +2,9 @@
   <div class="d-flex container w-25">
     <div >
       <h2>@<%= current_user.nickname %></h2>
-      <%= image_tag current_user.photo, size: "500x500", style: "border-radius: 50%; width: 200px; height: 200px;" %>
+      <% if current_user.photo.attached? %>
+        <%= image_tag current_user.photo, size: "500x500", style: "border-radius: 50%; width: 200px; height: 200px;" %>
+      <% end %>
     </div>
     <div style="flex: 1;">
       <div id="evidence-rand">
