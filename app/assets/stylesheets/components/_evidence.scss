@@ -5,7 +5,6 @@
 }
 
 #evidence-rand h1 {
-
   writing-mode: vertical-rl;
   transform:rotate(180deg) ;
   margin-left: 100px;
@@ -21,6 +20,9 @@
   width: 2000px;
 }
 
+.infos-text {
+  text-align: left
+}
 .card-trip {
   width: 210px;
   overflow: hidden;
@@ -31,6 +33,7 @@
   text-align: center;
   margin-bottom: 40px;
   margin-right: 40px;
+  height: 310px;
 }
 
 .card-trip > .img-evidence {
@@ -73,4 +76,18 @@
 .card-trip-infos h2 {
   color: white;
   margin-bottom: 5px;
+}
+
+#profile-rand h3 {
+  margin-left: 100px;
+  margin-right: 80px;
+  font-size: 100px;
+  color: white;
+  opacity: 0.5px;
+}
+
+#profile-rand h4 {
+  font-size: 60px;
+  color: white;
+  opacity: 0.5px;
 }

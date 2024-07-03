@@ -1,0 +1,38 @@
+.card-exercise-session-show {
+  max-width: 400px;
+  background-color: #789EB0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card-exercise-session-show .exercise-details {
+  padding: 5px;
+  color: white;
+}
+.card-exercise-session-show .exercise-title {
+  font-size: 2rem;
+  font-weight: bold;
+  // margin-bottom: 10px;
+}
+.card-exercise-session-show .exercise-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.7;
+  // margin-bottom: 10px;
+}
+.card-exercise-session-show .exercise-description {
+  // margin-bottom: 20px;
+}
+.card-exercise-session-show .exercise-image {
+  height: 300px;
+  object-fit: cover;
+  // border-radius: 20px;
+}
+.card-exercise-session-show .comment-item {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+}
+.card-exercise-session-show .comment-item p {
+  margin-bottom: 5px;
+}
+
