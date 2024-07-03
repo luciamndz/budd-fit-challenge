@@ -3,16 +3,24 @@
   padding: 80px;
 }
 
-#banner h2 {
+.banner h2 {
   font-size: 40px;
   color: white;
 }
 
-#title-challenge {
-  -webkit-text-stroke: 1px red;
-  color: red;
+#title-challenge-landing {
+  -webkit-text-stroke: 1px #E6FFCC;
+  color: #E6FFCC;
 }
 
 #banner .btn {
   margin-top: 20px;
+}
+
+#banner >p {
+  color: white;
+}
+
+.banner {
+  // margin-top: 30px;
 }

@@ -39,17 +39,30 @@ h1 {
 }
 
 .image-div p {
-  padding: 20px;
+  // padding: 20px;
   color: white;
+  margin-left: 20px;
+  margin-top: 15px;
 }
 
-#text {
-  padding: 20px;
-  text-align: center;
-
+#motivation {
+  font-size: 40px;
+  font-family: 'Inter', bold;
+  margin-left: 50px;
+  margin-top: 20px;
 }
 
-#text p {
-
-  border-radius: 20px;
+#motivation-text {
+  font-size: 16px;
+  margin-left: 50px;
 }
+
+// #text {
+//   padding: 20px;
+//   text-align: center;
+// }
+
+// #text p {
+
+//   border-radius: 20px;
+// }
