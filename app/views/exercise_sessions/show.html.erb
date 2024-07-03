@@ -1,60 +1,51 @@
 <div class="container">
-<h1>this is an exercise session</h1>
-
-<div class="container p-4 d-flex justify-content-center">
-  <div class="shadow-lg">
-    <div class="m-3">
-      <h1>Evidence Details</h1>
-      <p><strong>Activity:</strong> <%= @challenge_info.activity %></p>
-      <p><strong>Time Length (minutes):</strong> <%= @challenge_info.time_length %></p>
-      <p><strong>Description:</strong> <%= @challenge_info.description %></p>
-      <% if @challenge_info.photo.attached? %>
-        <p><strong>Photo:</strong></p>
-        
-      <% else %>
-        <p class="text-danger">No photo available</p>
-      <% end %>
+  <div class="p-4 d-flex justify-content-center">
+    <div class="card-exercise-session-show">
+      <div class="exercise-details text-center">
+        <h2 class="exercise-title"><%= @challenge_info.activity %></h2>
+        <h3 class="exercise-subtitle"><%= @challenge_info.time_length %> min</h3>
+        <p class="exercise-description"> <%= @challenge_info.description %></p>
+      </div>
+      <div class="row no-gutters mx-2">
+        <div class="col-md-12 ">
+          <% if @challenge_info.photo.attached? %>
+            <%= image_tag @challenge_info.photo, class: "exercise-image card-img-top mb-3", style: "height: 300px; object-fit: cover; border-radius: 10px;" %>
+          <% else %>
+            <div class="exercise-image-placeholder text-center">
+              <p class="text-danger mt-3">No photo available</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="exercise-details">
+        <%= link_to "Edit", edit_exercise_session_path(@challenge_info, @exercise_session), class: "btn btn-warning" %>
+      </div>
     </div>
   </div>
 </div>
-<%= link_to "Edit Exercise Session", edit_exercise_session_path(@challenge_info, @exercise_session), class: "btn btn-warning" %>
-
-
-<ul class="list-group">
-<% @exercise_session.exercise_comments.each do |exercise_comment| %>
-<p><%= exercise_comment.user.nickname%></p>
-<p><%= exercise_comment.id %></p>
-
-<li class="list-group-item"><%= exercise_comment.comments %></li>
-
-  <% if policy(exercise_comment).update?  %>
-  <%= link_to "Edit comment", edit_exercise_session_exercise_comment_path(@exercise_session, exercise_comment), class:"btn btn-warning"%>
-  <%= button_to "Delete comment", exercise_comment_path(exercise_comment), class: "btn btn-outline-danger", method: :delete %>
-  <% end %>
-
-<% end %>
-</ul>
-
-<%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  add comment modal
-</button> %>
-
-<%# <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Write a comment</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<%# COMENTS %>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="exercise-details action-buttons my-3">
+        <%= link_to "Add comment", new_exercise_session_exercise_comment_path(@exercise_session), class: "btn btn-warning btn-block" %>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <ul class="list-group comments-list">
+        <% @exercise_session.exercise_comments.each do |exercise_comment| %>
+          <li class="list-group-item comment-item">
+            <p><strong>User:</strong> <%= exercise_comment.user.nickname %></p>
+            <p><strong>Comment:</strong> <%= exercise_comment.comments %></p>
+            <% if policy(exercise_comment).update? %>
+              <div class="edit-buttons">
+                <%= link_to "Edit", edit_exercise_session_exercise_comment_path(@exercise_session, exercise_comment), class: "btn btn-warning btn-sm mr-2" %>
+                <%= button_to exercise_comment_path(exercise_comment), method: :delete, class: "btn btn-warning btn-sm mr-2", data: { confirm: "Are you sure?" } do %>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
-</div> %>
-<%= link_to "Add comment", new_exercise_session_exercise_comment_path(@exercise_session), class:"btn btn-warning"%>
 </div>
