@@ -5,7 +5,6 @@
 }
 
 #evidence-rand h1 {
-
   writing-mode: vertical-rl;
   transform:rotate(180deg) ;
   margin-left: 100px;
@@ -73,4 +72,18 @@
 .card-trip-infos h2 {
   color: white;
   margin-bottom: 5px;
+}
+
+#profile-rand h3 {
+  margin-left: 100px;
+  margin-right: 80px;
+  font-size: 100px;
+  color: white;
+  opacity: 0.5px;
+}
+
+#profile-rand h4 {
+  font-size: 60px;
+  color: white;
+  opacity: 0.5px;
 }
