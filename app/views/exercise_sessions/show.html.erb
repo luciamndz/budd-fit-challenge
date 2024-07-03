@@ -1,39 +1,51 @@
 <div class="container">
   <div class="p-4 d-flex justify-content-center">
-    <div class="card" style="max-width: 400px;">
-      <div class="card-body">
-        <h2 class="card-title"><%= @challenge_info.activity %></h2>
-        <h3 class="card-subtitle mb-2 text-muted"><%= @challenge_info.time_length %> min</h3>
-        <p class="card-text"><strong>Description:</strong> <%= @challenge_info.description %></p>
+    <div class="card-exercise-session-show">
+      <div class="exercise-details text-center">
+        <h2 class="exercise-title"><%= @challenge_info.activity %></h2>
+        <h3 class="exercise-subtitle"><%= @challenge_info.time_length %> min</h3>
+        <p class="exercise-description"> <%= @challenge_info.description %></p>
       </div>
-      <div class="row no-gutters">
-        <div class="col-md-12">
+      <div class="row no-gutters mx-2">
+        <div class="col-md-12 ">
           <% if @challenge_info.photo.attached? %>
-            <%= image_tag @challenge_info.photo, class: "card-img-top", style: "height: 300px; object-fit: cover;" %>
+            <%= image_tag @challenge_info.photo, class: "exercise-image card-img-top mb-3", style: "height: 300px; object-fit: cover; border-radius: 10px;" %>
           <% else %>
-            <div class="text-center" style="height: 300px; background-color: #f8f9fa;">
+            <div class="exercise-image-placeholder text-center">
               <p class="text-danger mt-3">No photo available</p>
             </div>
           <% end %>
         </div>
       </div>
-      <div class="card-body">
-        <%= link_to "Edit Exercise Session", edit_exercise_session_path(@challenge_info, @exercise_session), class: "btn btn-warning btn-block mb-3" %>
-        <ul class="list-group">
-          <% @exercise_session.exercise_comments.each do |exercise_comment| %>
-            <li class="list-group-item">
-              <p><strong>User:</strong> <%= exercise_comment.user.nickname %></p>
-              <p><strong>Comment ID:</strong> <%= exercise_comment.id %></p>
-              <p><strong>Comment:</strong> <%= exercise_comment.comments %></p>
-              <% if policy(exercise_comment).update? %>
-                <%= link_to "Edit comment", edit_exercise_session_exercise_comment_path(@exercise_session, exercise_comment), class: "btn btn-warning mr-2" %>
-                <%= button_to "Delete comment", exercise_comment_path(exercise_comment), class: "btn btn-outline-danger", method: :delete, data: { confirm: "Are you sure?" } %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-        <%= link_to "Add comment", new_exercise_session_exercise_comment_path(@exercise_session), class: "btn btn-warning btn-block mt-3" %>
+      <div class="exercise-details">
+        <%= link_to "Edit", edit_exercise_session_path(@challenge_info, @exercise_session), class: "btn btn-warning" %>
       </div>
+    </div>
+  </div>
+</div>
+<%# COMENTS %>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="exercise-details action-buttons my-3">
+        <%= link_to "Add comment", new_exercise_session_exercise_comment_path(@exercise_session), class: "btn btn-warning btn-block" %>
+      </div>
+      <ul class="list-group comments-list">
+        <% @exercise_session.exercise_comments.each do |exercise_comment| %>
+          <li class="list-group-item comment-item">
+            <p><strong>User:</strong> <%= exercise_comment.user.nickname %></p>
+            <p><strong>Comment:</strong> <%= exercise_comment.comments %></p>
+            <% if policy(exercise_comment).update? %>
+              <div class="edit-buttons">
+                <%= link_to "Edit", edit_exercise_session_exercise_comment_path(@exercise_session, exercise_comment), class: "btn btn-warning btn-sm mr-2" %>
+                <%= button_to exercise_comment_path(exercise_comment), method: :delete, class: "btn btn-warning btn-sm mr-2", data: { confirm: "Are you sure?" } do %>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
