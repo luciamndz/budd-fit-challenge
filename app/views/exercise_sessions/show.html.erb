@@ -1,60 +1,39 @@
 <div class="container">
-<h1>this is an exercise session</h1>
-
-<div class="container p-4 d-flex justify-content-center">
-  <div class="shadow-lg">
-    <div class="m-3">
-      <h1>Evidence Details</h1>
-      <p><strong>Activity:</strong> <%= @challenge_info.activity %></p>
-      <p><strong>Time Length (minutes):</strong> <%= @challenge_info.time_length %></p>
-      <p><strong>Description:</strong> <%= @challenge_info.description %></p>
-      <% if @challenge_info.photo.attached? %>
-        <p><strong>Photo:</strong></p>
-        <%= image_tag @challenge_info.photo %>
-      <% else %>
-        <p class="text-danger">No photo available</p>
-      <% end %>
-    </div>
-  </div>
-</div>
-<%= link_to "Edit Exercise Session", edit_exercise_session_path(@challenge_info, @exercise_session), class: "btn btn-warning" %>
-
-
-<ul class="list-group">
-<% @exercise_session.exercise_comments.each do |exercise_comment| %>
-<p><%= exercise_comment.user.nickname%></p>
-<p><%= exercise_comment.id %></p>
-
-<li class="list-group-item"><%= exercise_comment.comments %></li>
-
-  <% if policy(exercise_comment).update?  %>
-  <%= link_to "Edit comment", edit_exercise_session_exercise_comment_path(@exercise_session, exercise_comment), class:"btn btn-warning"%>
-  <%= button_to "Delete comment", exercise_comment_path(exercise_comment), class: "btn btn-outline-danger", method: :delete %>
-  <% end %>
-
-<% end %>
-</ul>
-
-<%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  add comment modal
-</button> %>
-
-<%# <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Write a comment</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="p-4 d-flex justify-content-center">
+    <div class="card" style="max-width: 400px;">
+      <div class="card-body">
+        <h2 class="card-title"><%= @challenge_info.activity %></h2>
+        <h3 class="card-subtitle mb-2 text-muted"><%= @challenge_info.time_length %> min</h3>
+        <p class="card-text"><strong>Description:</strong> <%= @challenge_info.description %></p>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="row no-gutters">
+        <div class="col-md-12">
+          <% if @challenge_info.photo.attached? %>
+            <%= image_tag @challenge_info.photo, class: "card-img-top", style: "height: 300px; object-fit: cover;" %>
+          <% else %>
+            <div class="text-center" style="height: 300px; background-color: #f8f9fa;">
+              <p class="text-danger mt-3">No photo available</p>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="card-body">
+        <%= link_to "Edit Exercise Session", edit_exercise_session_path(@challenge_info, @exercise_session), class: "btn btn-warning btn-block mb-3" %>
+        <ul class="list-group">
+          <% @exercise_session.exercise_comments.each do |exercise_comment| %>
+            <li class="list-group-item">
+              <p><strong>User:</strong> <%= exercise_comment.user.nickname %></p>
+              <p><strong>Comment ID:</strong> <%= exercise_comment.id %></p>
+              <p><strong>Comment:</strong> <%= exercise_comment.comments %></p>
+              <% if policy(exercise_comment).update? %>
+                <%= link_to "Edit comment", edit_exercise_session_exercise_comment_path(@exercise_session, exercise_comment), class: "btn btn-warning mr-2" %>
+                <%= button_to "Delete comment", exercise_comment_path(exercise_comment), class: "btn btn-outline-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+        <%= link_to "Add comment", new_exercise_session_exercise_comment_path(@exercise_session), class: "btn btn-warning btn-block mt-3" %>
       </div>
     </div>
   </div>
-</div> %>
-<%= link_to "Add comment", new_exercise_session_exercise_comment_path(@exercise_session), class:"btn btn-warning"%>
 </div>

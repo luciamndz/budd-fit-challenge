@@ -1,7 +1,7 @@
 <div class="container p-4 d-flex justify-content-center">
   <div class="shadow-lg">
     <div class="m-3">
-      <h1>Add your evidence</h1>
+      <h2>Add your evidence</h2>
       <% console %>
       <%= simple_form_for [@challenge_info, @exercise_session], url: challenge_info_exercise_sessions_path(@challenge_info) do |f| %>
         <%= f.input :activity, collection: Challenge::ACTIVITIES, prompt: "Select an activity" %>
