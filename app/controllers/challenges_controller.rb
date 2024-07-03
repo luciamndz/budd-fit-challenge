@@ -5,26 +5,22 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = policy_scope(Challenge)
-
     if params[:query].present?
       @challenges = Challenge.search_by_name_and_activity(params[:query])
     else
       @challenges = Challenge.all
     end
-
     @exercise_sessions = ExerciseSession.all.order("RANDOM()").take(14)
     respond_to do |format|
       format.html
       format.text { render partial: "shared/list", locals: {challenges: @challenges}, formats: [:html]}
     end
-
   end
 
   def show;
     @invite = Invite.new
     authorize @challenge
     authorize @invite
-
     @exercise_sessions = ExerciseSession.joins(challenge_info: :challenge).where(challenge_infos: { challenge_id: @challenge.id })
     @user_challenge_info = @challenge.challenge_infos.find_by(user: current_user)
   end
