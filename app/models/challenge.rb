@@ -14,7 +14,8 @@ class Challenge < ApplicationRecord
   validates :activity, inclusion: { in: ACTIVITIES }
   validates :start_date, presence: true
   validates :end_date, presence: true
-
+  validates :name, length: { maximum: 15,
+    too_long: "%{count} characters is the maximum allowed" }
 
   pg_search_scope :search_by_name_and_activity,
                   against: [ :name, :activity ],

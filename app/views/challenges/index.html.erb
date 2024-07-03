@@ -17,9 +17,11 @@
         <h1 style="height: auto;">Buddies in action</h1>
       </div>
       <div id="evidence-display">
-        <% 14.times do %>
-          <%= render "evidence" %>
+
+        <% @exercise_sessions.each do |session| %>
+          <%= render "evidence", session: session %>
         <% end %>
+
       </div>
     </div>
   </div>

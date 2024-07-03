@@ -39,7 +39,7 @@ end
 puts "Creating Challenges"
 
 Challenge.create!(
-  name: "BUDDIES CHALLENGE!",
+  name: "BUDDIES",
   challenge_type: "Public",
   activity: "Open",
   status: "created",
@@ -59,7 +59,7 @@ Challenge.create!(
 # )
 
 Challenge.create!(
-  name: "BATCH 1686 FIT CHALLENGE",
+  name: "BATCH 1686",
   challenge_type: "Private",
   activity: "Open",
   status: "created",
