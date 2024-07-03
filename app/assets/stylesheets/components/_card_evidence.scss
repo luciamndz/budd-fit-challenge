@@ -1,5 +1,5 @@
 .card-evidence {
-  background-color: rgba(71, 69, 44, 0.8);
+  background-color: #789EB0;
   color: white;
   padding: 15px;
   width: 1120px;
@@ -7,13 +7,14 @@
   margin: 20px auto;
   border-radius: 16px;
   position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
 }
 .card-title {
   font-size: 32px;
   font-weight: bold;
 }
 .card-title-yellow {
-  color: yellow;
+  color: #E6FFCC;
 }
 .evidence-text2 {
   position: absolute;
@@ -24,8 +25,8 @@
   font-weight: bold;
 }
 .round-buton {
-  background-color: #D8C70E !important;
-  border-color: black !important;
+  background-color: #E6FFCC !important;
+  border-color: #7E926A !important;
   font-weight: 500 !important;
   border-radius: 50px;
   width: 80px;
@@ -34,9 +35,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
   text-decoration: none;
-  color: black;
+  color: #789EB0;
   font-size: 60px;
   position: absolute;
   top: -25px;

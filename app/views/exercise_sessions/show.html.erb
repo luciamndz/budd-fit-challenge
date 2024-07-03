@@ -2,7 +2,7 @@
 <h1>this is an exercise session</h1>
 
 <div class="container p-4 d-flex justify-content-center">
-  <div class="shadow-lg border border-light">
+  <div class="shadow-lg">
     <div class="m-3">
       <h1>Evidence Details</h1>
       <p><strong>Activity:</strong> <%= @challenge_info.activity %></p>
@@ -17,7 +17,7 @@
     </div>
   </div>
 </div>
-<%= link_to "Edit Exercise Session", edit_exercise_session_path(@challenge_info, @exercise_session), class: "btn btn-primary" %>
+<%= link_to "Edit Exercise Session", edit_exercise_session_path(@challenge_info, @exercise_session), class: "btn btn-warning" %>
 
 
 <ul class="list-group">
@@ -28,7 +28,7 @@
 <li class="list-group-item"><%= exercise_comment.comments %></li>
 
   <% if policy(exercise_comment).update?  %>
-  <%= link_to "Edit comment", edit_exercise_session_exercise_comment_path(@exercise_session, exercise_comment), class:"btn btn-primary"%>
+  <%= link_to "Edit comment", edit_exercise_session_exercise_comment_path(@exercise_session, exercise_comment), class:"btn btn-warning"%>
   <%= button_to "Delete comment", exercise_comment_path(exercise_comment), class: "btn btn-outline-danger", method: :delete %>
   <% end %>
 
@@ -56,5 +56,5 @@
     </div>
   </div>
 </div> %>
-<%= link_to "add comment", new_exercise_session_exercise_comment_path(@exercise_session), class:"btn btn-primary"%>
+<%= link_to "Add comment", new_exercise_session_exercise_comment_path(@exercise_session), class:"btn btn-warning"%>
 </div>

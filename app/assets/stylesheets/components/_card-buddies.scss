@@ -1,6 +1,7 @@
 .buddies-card {
-  background-color: #ffffff9e;
-  border-radius: 20px
+  background-color: #789EB0;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
 }
 
 .buddies-card-title {
@@ -12,4 +13,8 @@
   font-weight: bold;
   font-size: 48px;
   color: #ffffff;
+}
+
+.buddies-card-text {
+  color:#ffffff;
 }

@@ -1,16 +1,18 @@
 .btn-warning {
-  background-color: #D8C70E !important;
-  border-color: black !important;
+  background-color: #E6FFCC !important;
+  border-color: #7E926A !important;
+  border-width: 0.5px;
   font-weight: 500 !important;
   border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+  box-shadow: 1px 1px 5px rgb(88, 91, 91);
 }
 
 .btn-warning:hover {
-  background-color: #bdae0e !important;
+  background-color: #bfd4a8 !important;
 }
 
 .btn-outline-light {
   border-radius: 8px;
-  box-shadow: 2px 2px 5px rgb(82, 82, 82);
+  box-shadow: 1px 1px 5px rgb(88, 91, 91);
+  border-width: 1px;
 }

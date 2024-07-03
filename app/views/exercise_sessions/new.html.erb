@@ -1,5 +1,5 @@
 <div class="container p-4 d-flex justify-content-center">
-  <div class="shadow-lg border border-light">
+  <div class="shadow-lg">
     <div class="m-3">
       <h1>Add your evidence</h1>
       <% console %>
@@ -11,7 +11,7 @@
         <% if @exercise_session.errors.has_key?(:photo) %>
           <p class="text-danger"><%= @exercise_session.errors[:photo].first %></p>
         <% end %>
-        <%= f.button :submit, "Create your post evidence", class: "btn btn-primary" %>
+        <%= f.button :submit, "Create your post evidence", class: "btn btn-warning" %>
       <% end %>
     </div>
   </div>

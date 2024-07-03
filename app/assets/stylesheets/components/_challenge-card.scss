@@ -7,12 +7,12 @@
   overflow: hidden;
   width: 500px;
   height: 200px;
-  background-color: rgba(41,41,39,0.5);
+  background-color: #789EB0;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
   display: flex;
   align-items: center;
   border-radius: 25px;
-  color: #D8C70E;
+  color: white;
   margin-bottom: 15px;
   margin-top: 30px;
   margin-right: 200px;
@@ -61,12 +61,12 @@
   font-size: 50px;
   padding-top: 5px;
   text-decoration: none;
-  color: #D8C70E;
+  color: #E6FFCC;
 }
 
 .go:hover {
   transition: 0.3s;
-  color: #551d83;
+  color: #7E926A;
 }
 
 .attributes {
@@ -79,7 +79,7 @@
 }
 #number {
   font-size: 44px;
-  color:#D8C70E;
+  color:#E6FFCC;
   padding: 0;
 }
 .duration > p {
@@ -94,7 +94,7 @@
 }
 .dates {
   margin: 5px;
-  color: white;
+  color: #E6FFCC;
 }
 
 .challenges {

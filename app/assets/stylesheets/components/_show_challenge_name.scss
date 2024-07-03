@@ -1,0 +1,31 @@
+#challenge-display {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+
+  min-height: 600px;
+}
+#challenge-name h1 {
+  position: absolute;
+  transform: rotate(-90deg);
+  left: 550px;
+  top: 360px;
+  font-size: 90px;
+  max-width: 50%;
+  word-wrap: break-word;
+  color: white;
+  opacity: 0.5;
+}
+
+.section-one {
+  margin-bottom: 25px;
+  margin-left: 100px;
+}
+
+.background-section {
+  background-color: #E6FFCC;
+  height: 500px;
+  width: 300px;
+  opacity: 0.2;
+  border-bottom-left-radius: 50px;
+}
