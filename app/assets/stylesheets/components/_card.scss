@@ -1,16 +1,24 @@
 .card-challenge {
-  overflow: hidden;
+//   overflow: hidden;
   width: 550px;
   height: 150px;
-  background-color: #ffffff9e;
+  background-color: #789EB0;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
   display: flex;
-  align-items: center;
-  border-radius: 25px;
-  color: #D8C70E;
-  margin-bottom: 15px;
-  margin-left: 0px;
-  margin-top: 15px;
+  // align-items: center;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  margin-top: 100px;
+ }
+
+.card-challenge-name {
+  color: #FFFFFF;
+  font-family: 'Inter', bold;
+}
+
+.card-challenge-item {
+  display: flex;
+  align-content: center;
 }
 
 .card-challenge .card-challenge-infos {
@@ -46,7 +54,6 @@
 
 .card-challenge-attributes {
   color: white;
-
 }
 
 .card-challenge-duration {
@@ -58,8 +65,8 @@
 
 #card-challenge-number {
   font-size: 44px;
-  -webkit-text-stroke: 1px #D8C70E;
-  color: #d8c70e9d;
+  -webkit-text-stroke: 1px #E6FFCC;
+  color: #E6FFCC;
   padding: 0;
 }
 

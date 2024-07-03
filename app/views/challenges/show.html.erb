@@ -1,61 +1,59 @@
-<div class="container">
-  <div>
-    <%= render "card" %>
-  </div>
-  <div class="buddies-card my-3" style="width: 35rem;">
-    <div class="buddies-card-title">
-      <h2 id="buddies">BUDDIES</h2>
-    </div>
-    <div class="row buddies">
-      <% @challenge.challenge_infos.where(user_status: "active").each do |challenge_info| %>
-        <div class="col-md-3">
-          <div class="card-body p-3">
-            <div class="avatar-container">
-              <%= cl_image_tag challenge_info.user.photo.key, class: "avatar rounded-circle", id: "img-card", data: { score: challenge_info.user_score } %>
-              <div class="avatar-overlay">
-                <span class="score"><%= challenge_info.user_score %></span>
-              </div>
-            </div>
-            <div class="buddies-card-text text-center">
-              <p><%= challenge_info.user.nickname %></p>
-            </div>
-          </div>
+<div class="challenge-display">
+  <div class="challenge-display-cards d-flex justify-content-between">
+    <div class="section-one">
+      <div id="challenge-name">
+        <h1><%= @challenge.name %></h1>
+      </div>
+        <div>
+          <%= render "card" %>
         </div>
-      <% end %>
+        <div>
+          <%= render "buddies-card" %>
+      </div>
+    </div>
+    <div class="section-two">
+      <div class="background-section">
+      </div>
     </div>
   </div>
-  <div class="card card-evidence">
-  <div class="card-body d-flex justify-content-between align-items-center">
-    <div>
-      <h5 class="card-title mb-0">
-        Your friends are <span class="card-title-yellow">working out</span>, what are <span class="card-title-yellow">you</span> doing?
-      </h5>
-    </div>
-    <div class="d-flex align-items-center">
-      <p class="evidence-text2">Add <span class="card-title-yellow">Today's</span> evidence!</p>
-      <%= link_to "+", new_challenge_info_exercise_session_path(@user_challenge_info), class: "round-buton btn-evidence" %>
-    </div>
-  </div>
-</div>
 
+  <div class="challene-signs">
+    <div class="card card-custom">
+      <div class="card-body">
+        <p>Invite your friends to join this challenge!</p>
+        <%= simple_form_for [@challenge, @invite], html: { class: 'form-inline' } do |f| %>
+          <div class="row">
+            <div class="col-md-8">
+              <%= f.input :invitee_id,
+                          collection: User.where.not(id: @challenge.users.select(:id)).map { |user| [user.nickname, user.id] },
+                          label: false,
+                          include_blank: 'Select a buddy',
+                          input_html: { class: 'form-control' } %>
+            </div>
+            <div class="col-md-4 text-md-right">
+              <%= f.button :submit, "Invite your buddy", class: "btn btn-warning" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="card card-custom">
-    <div class="card-body">
-      <p>Exercising with your friends has never been so fun! Invite them to join this challenge!</p>
-      <%= simple_form_for [@challenge, @invite], html: { class: 'form-inline' } do |f| %>
-        <div class="row">
-          <div class="col-md-8">
-            <%= f.input :invitee_id,
-                        collection: User.where.not(id: @challenge.users.select(:id)).map { |user| [user.nickname, user.id] },
-                        label: false,
-                        include_blank: 'Select a buddy',
-                        input_html: { class: 'form-control' } %>
-          </div>
-          <div class="col-md-4 text-md-right">
-            <%= f.button :submit, "Invite your buddy", class: "btn btn-warning" %>
-          </div>
+    <div class="card card-evidence">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div>
+          <h5 class="card-title mb-0">
+            Your friends are <span class="card-title-yellow">working out</span>, what are <span class="card-title-yellow">you</span> doing?
+          </h5>
         </div>
-      <% end %>
+        <div class="d-flex align-items-center">
+          <p class="evidence-text2">Add <span class="card-title-yellow">Today's</span> evidence!</p>
+          <%= link_to "+", new_challenge_info_exercise_session_path(@user_challenge_info), class: "round-buton btn-evidence" %>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="display-daily-evidences">
+
   </div>
 </div>
