@@ -1,28 +1,30 @@
-<div class="container-fluid shadow p-5">
+<div class="shadow">
   <div class="row d-flex">
     <div class="col-8 d-flex justify-content-end">
       <div class="w-50">
-        <div id="profile-rand" class="d-flex justify-content-start">
+        <div id="profile-rand" class="d-flex justify-content-center">
           <div class="w-100">
             <h4>@<%= current_user.nickname %></h4>
           </div>
         </div>
-        <div class="d-flex justify-content-center align-items-center" style="height:40vh;">
+        <div class="d-flex justify-content-center align-items-center" style="height:60vh;">
           <% if current_user.photo.attached? %>
-            <%= image_tag current_user.photo, size: "500x500", style: "border-radius: 50%; width: 200px; height: 200px;" %>
+            <%= image_tag current_user.photo, size: "500x500", style: "border-radius: 50%; width: 300px; height: 300px;" %>
             <% else %>
-            <%= image_tag "avatar.jpg", size: "500x500", style: "border-radius: 50%; width: 200px; height: 200px;" %>
+            <%= image_tag "avatar.jpg", size: "500x500", style: "border-radius: 50%; width: 500px; height: 500px;" %>
             <% end %>
         </div>
       </div>
       <div>
         <div style="width: 10vw;">
-          <h1 style="height: auto;">My Profile</h1>
+          <h1 style="height: auto; opacity:0.6">My Profile</h1>
         </div>
       </div>
     </div>
 
-    <div class="col-4"></div>
+    <div class="col-4 d-flex justify-content-end">
+      <div class="shaded"></div>
+    </div>
   </div>
 
   <% if @invites.count.positive? %>
