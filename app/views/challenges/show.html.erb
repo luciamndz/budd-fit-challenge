@@ -13,11 +13,17 @@
     </div>
     <div class="section-two">
       <div class="background-section">
+      <% if @cuser_evidence.nil? %>
         <div class="info-session">
-          <%# <h3><%= @cuser_evidence.activity %>
-          <%# <p><%= @cuser_evidence.time_length %>
+          <h3>No Activity Yet</h3>
         </div>
-        <%# <%= cl_image_tag @cuser_evidence.photo.key, class:"img-section-evidence"%>
+        <% else %>
+        <div class="info-session">
+          <h3><%= @cuser_evidence.activity %></h3>
+          <p><%= @cuser_evidence.time_length%> mins</p>
+        </div>
+        <%= cl_image_tag @cuser_evidence.photo.key, class:"img-section-evidence"%>
+      <% end %>
       </div>
     </div>
   </div>
