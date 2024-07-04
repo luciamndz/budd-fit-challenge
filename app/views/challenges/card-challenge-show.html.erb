@@ -1,0 +1,30 @@
+<div class="card-challenge">
+  <div class="card-challenge-infos">
+    <div class="card-challenge-title">
+      <h2 class="card-challenge-name"><%= @challenge.name %></h2>
+    </div>
+    <div class="card-challenge-info">
+      <div class="card-challenge-attributes">
+        <h3><%= @challenge.activity %></h3>
+      </div>
+      <div class="card-challenge-duration">
+        <% final = @challenge.end_date.split("-").map(&:to_i) %>
+        <% start = @challenge.start_date.split("-").map(&:to_i) %>
+        <% duration = (Date.new(final[0],final[1],final[2])-Date.new(start[0],start[1],start[2])).to_i %>
+        <h2 id="card-challenge-number"><%= duration %></h2>
+        <p>days</p>
+      </div>
+    </div>
+    <div id="card-challenge-days">
+      <div class="card-challenge-dates">
+        <p>Starts</p>
+        <p><%= @challenge.start_date %></p>
+      </div>
+      <div class="card-challenge-dates">
+        <p>Ends</p>
+        <p><%= @challenge.end_date %></p>
+      </div>
+      <%= button_to "Delete Challenge", @challenge, class: "btn btn-outline-danger", method: :delete if policy(@challenge).destroy? %>
+    </div>
+  </div>
+</div>

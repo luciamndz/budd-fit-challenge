@@ -37,4 +37,17 @@
   height: 250px;
   width:250px;
   border-radius: 30px;
+  object-fit: cover;
+  box-shadow: 1px 1px 3px rgba($color: #000000, $alpha: 0.2);
+}
+
+.info-session {
+  padding: 20px;
+  padding-top: 90px;
+}
+
+.info-session h3 {
+  border: 2px solid white;
+  border-radius: 20px;
+  color: white;
 }
