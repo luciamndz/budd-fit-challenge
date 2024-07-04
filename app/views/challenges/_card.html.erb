@@ -2,20 +2,10 @@
   <div class="card-challenge-infos">
     <div class="card-challenge-title">
       <h2 class="card-challenge-name"><%= @challenge.name %></h2>
-    </div>
-    <div class="card-challenge-info">
       <div class="card-challenge-attributes">
         <h3><%= @challenge.activity %></h3>
       </div>
-      <div class="card-challenge-duration">
-        <% final = @challenge.end_date.split("-").map(&:to_i) %>
-        <% start = @challenge.start_date.split("-").map(&:to_i) %>
-        <% duration = (Date.new(final[0],final[1],final[2])-Date.new(start[0],start[1],start[2])).to_i %>
-        <h2 id="card-challenge-number"><%= duration %></h2>
-        <p>days</p>
-      </div>
-    </div>
-    <div id="card-challenge-days">
+      <div id="card-challenge-days">
       <div class="card-challenge-dates">
         <p>Starts</p>
         <p><%= @challenge.start_date %></p>
@@ -24,7 +14,43 @@
         <p>Ends</p>
         <p><%= @challenge.end_date %></p>
       </div>
-      <%= button_to "Delete Challenge", @challenge, class: "btn btn-outline-danger", method: :delete if policy(@challenge).destroy? %>
+      </div>
+
+    </div>
+    <div id="icon" class="d-flex justify-content-center align-middle">
+    <% if @challenge.activity == "Barre"%>
+  <img src="<%= asset_path('ballet.png') %>"  alt="women doing Barre pose">
+  <% elsif @challenge.activity == "Boxing" %>
+  <img src="<%= asset_path('boxing.png') %>"  alt="Woman jumping rope">
+  <% elsif @challenge.activity == "Weight Lifting" %>
+  <img src="<%= asset_path('weightlift.png') %>"  alt="woman exercising">
+  <% elsif @challenge.activity == "Pilates" %>
+  <img src="<%= asset_path('pilates-ball.png') %>"  alt="woman exercising">
+  <% elsif @challenge.activity == "Crossfit" %>
+  <img src="<%= asset_path('weightlift.png') %>"  alt="woman exercising">
+  <% elsif @challenge.activity == "Running" %>
+  <img src="<%= asset_path('run.png') %>"  alt="woman exercising">
+  <% elsif @challenge.activity == "Indoor Cycling" %>
+  <img src="<%= asset_path('cycling.png') %>"  alt="woman exercising">
+  <% elsif @challenge.activity == "Swimming" %>
+  <img src="<%= asset_path('swimmer.png') %>"  alt="woman exercising">
+  <% elsif @challenge.activity == "Open" %>
+  <img src="<%= asset_path('meditation.png') %>"  alt="woman exercising">
+  <% end %>
+  </div>
+    <div class="card-challenge-info">
+      <div class="card-challenge-duration">
+        <% final = @challenge.end_date.split("-").map(&:to_i) %>
+        <% start = @challenge.start_date.split("-").map(&:to_i) %>
+        <% duration = (Date.new(final[0],final[1],final[2])-Date.new(start[0],start[1],start[2])).to_i %>
+        <h2 id="card-challenge-number"><%= duration %></h2>
+        <p>days</p>
+      </div>
+
     </div>
   </div>
+    <div class="delete-button">
+      <%= button_to "Delete", challenge_path(@challenge), class: "btn btn-warning", method: :delete if policy(@challenge).destroy? %>
+
+    </div>
 </div>

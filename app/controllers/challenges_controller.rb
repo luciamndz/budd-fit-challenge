@@ -23,6 +23,7 @@ class ChallengesController < ApplicationController
     authorize @invite
     @exercise_sessions = ExerciseSession.joins(challenge_info: :challenge).where(challenge_infos: { challenge_id: @challenge.id })
     @user_challenge_info = @challenge.challenge_infos.find_by(user: current_user)
+    # @cuser_evidence= @challenge.challenge_infos.where(user: current_user).map(&:exercise_sessions).last.last
   end
 
   def new
