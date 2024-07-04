@@ -1,11 +1,10 @@
 <div class="card-trip">
   <div class="card-trip-infos">
     <div>
-      <h2><%= session.activity %></h2>
+      <h2><%= link_to "#{session.activity}", exercise_session_path(session), class:"show-session" %></h2>
       <h3><%= session.time_length %> mins</h3>
     </div>
     <%= cl_image_tag session.challenge_info.user.photo.key, class:"card-trip-user avatar-bordered"%>
   </div>
   <%= cl_image_tag session.photo.key, class:"img-evidence"%>
-
 </div>

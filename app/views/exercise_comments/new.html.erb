@@ -1,7 +1,9 @@
-<%= simple_form_for ([ @exercise_session  ,@exercise_comment ]) do |f| %>
-        <%= f.input :comments, prompt: "Leave a comment"%>
-        <%= f.button :submit, "Send", class: "btn btn-warning" %>
-
-      <% end %>
-
-      <%= link_to "Go back to session", exercise_session_path(@exercise_session), class:"btn btn-warning"%>
+<div class="container text-center mt-3">
+  <%= simple_form_for([@exercise_session, @exercise_comment]) do |f| %>
+    <div class="form-group" id="exercise_comment_comments">
+      <%= f.input :comments, label: false, input_html: { class: 'form-control form-control-sm', placeholder: 'Leave a comment' } %>
+    </div>
+    <%= f.button :submit, "Send", class: "btn btn-warning btn-sm mr-2" %>
+    <%= link_to "Go back to session", exercise_session_path(@exercise_session), class: "btn btn-warning btn-sm" %>
+  <% end %>
+</div>

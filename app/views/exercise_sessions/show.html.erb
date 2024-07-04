@@ -8,8 +8,8 @@
             <h3 class="exercise-subtitle text-white"><%= @challenge_info.time_length %> min</h3>
           </div>
           <div>
-            <% if current_user.photo.attached? %>
-              <%= image_tag current_user.photo, size: "200x200", style: "border-radius: 50%; width: 70px; height: 70px;" %>
+            <% if @exercise_session.challenge_info.user.photo.attached? %>
+              <%= image_tag @exercise_session.challenge_info.user.photo, size: "200x200", style: "border-radius: 50%; width: 70px; height: 70px;" %>
             <% else %>
               <%= image_tag "avatar.jpg", size: "200x200", style: "border-radius: 50%; width: 70px; height: 70px;" %>
             <% end %>
@@ -36,16 +36,17 @@
   <div class="row justify-content-center">
     <div class="col-md-8 text-center">
       <%= link_to "Add comment", new_exercise_session_exercise_comment_path(@exercise_session), class: "btn btn-warning" %>
+      <%= link_to "Go back to challenge", challenge_path(@exercise_session.challenge_info.challenge), class: "btn btn-warning" %>
     </div>
   </div>
 </div>
 
   <div class="container mt-4">
     <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-md-8" >
         <ul class="list-group comments-list">
           <% @exercise_session.exercise_comments.each do |exercise_comment| %>
-            <li class="list-group-item comment-item row d-flex">
+            <li class="list-group-item comment-item row d-flex mt-3" id="exercise_comment_comments">
               <div class="col-10">
                 <div class="d-flex">
                   <p class="me-3"><strong><%= exercise_comment.user.nickname %></strong></p>
